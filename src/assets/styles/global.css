@@ -1,0 +1,341 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  color: #222;
+  background: #f7f9fc;
+}
+
+
+
+h1, h2, h3 {
+  font-family: 'Poppins', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+
+}
+
+
+/* .navbar {
+  background: #0b3d2e;
+  color: white;
+  padding: 1rem 0;
+} */
+
+.navbar {
+  background: #0B3D2E;
+  color: white;
+  padding: 15px 0;
+}
+
+.nav-links a {
+  margin-left: 20px;
+  font-weight: 500;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.logo a {
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.logo img{
+  height: 100px;
+  border-radius: 50%;
+}
+/* .hero {
+  background: linear-gradient(rgba(11, 61, 46, 0.8), rgba(11, 61, 46, 0.8)),
+    url("/images/hero.jpg") center/cover no-repeat;
+  color: white;
+  padding: 6rem 0;
+} */
+
+
+.hero {
+  background: linear-gradient(
+    rgba(11,61,46,0.8),
+    rgba(11,61,46,0.8)
+  ), url('/images/nashcda-hero.png');
+
+  background-size: cover;
+  color: white;
+}
+
+.hero-content {
+  max-width: 700px;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  margin-bottom: 1.5rem;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* .btn {
+  background: #f4b400;
+  color: black;
+  padding: 0.8rem 1.2rem;
+  border-radius: 6px;
+  font-weight: bold;
+} */
+
+.btn {
+  background: #F4B400;
+  color: #000;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+/* .btn-outline {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+} */
+
+.btn-outline {
+  border: 2px solid white;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 6px;
+}
+
+.section,
+.page-section {
+  padding: 80px 0;
+}
+
+.light-bg {
+  background: #eef4f1;
+}
+
+.section-title {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.section-title h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.intro-text {
+  max-width: 850px;
+  margin: auto;
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.thematic-grid,
+.program-grid,
+.news-grid,
+.stat-grid {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h3,
+.card h2 {
+  margin-bottom: 0.8rem;
+}
+
+.stat-card {
+  text-align: center;
+}
+
+.stat-card h3 {
+  font-size: 40px;
+  color: #0B3D2E;
+}
+
+/* .footer {
+  background: #0b3d2e;
+  color: white;
+  padding: 2rem 0;
+  text-align: center;
+} */
+
+.footer {
+  background: #0B3D2E;
+  color: white;
+  padding: 40px 0;
+  text-align: center;
+}
+
+.page-card {
+  margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+  .navbar-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+}
+
+/* Map css */
+
+.map-page-header {
+  margin-bottom: 2rem;
+}
+
+.map-page-header h1 {
+  margin-bottom: 0.5rem;
+}
+
+.map-filters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-group label {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.filter-group select {
+  padding: 0.8rem;
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  background: white;
+}
+
+.map-layout {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 1.5rem;
+}
+
+.map-placeholder {
+  min-height: 450px;
+}
+
+.lga-grid {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.lga-button {
+  border: 1px solid #dbe5df;
+  background: #f7f9fc;
+  border-radius: 8px;
+  padding: 1rem;
+  cursor: pointer;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  transition: 0.2s ease;
+}
+
+.lga-button:hover {
+  transform: translateY(-2px);
+  background: #eef4f1;
+}
+
+.lga-button.active {
+  background: #0b3d2e;
+  color: white;
+  border-color: #0b3d2e;
+}
+
+.lga-panel {
+  min-height: 450px;
+}
+
+.lga-program-list {
+  margin-top: 1.5rem;
+}
+
+.lga-program-item {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.lga-program-item h4 {
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 900px) {
+  .map-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+.leaflet-map-wrapper {
+  margin-top: 1rem;
+  height: 430px;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.leaflet-map {
+  height: 100%;
+  width: 100%;
+}
