@@ -1,10 +1,10 @@
 const programs = [
   {
     id: 1,
-    title: "School Support Activities",
-    thematicArea: "Education",
+    title: "Empower Her",
+    thematicArea: "Social Development",
     location: "Lafia LGA",
-    description: "Supporting learning through monitoring, debates, quizzes, and mentorship."
+    description: "Financial Literacy and Economic Inclusion Outreach for Women in Nasarawa State"
   },
   {
     id: 2,
