@@ -18,7 +18,7 @@ import OpportunityDetails from "../pages/OpportunityDetails";
 import OpportunityApply from "../pages/OpportunityApply";
 import Staff from "../pages/Staff";
 import EventsPrograms from "../pages/EventsPrograms";
-
+import EventProgramDetails from "../pages/EventProgramDetails";
 
 
 function AppRouter() {
@@ -41,6 +41,7 @@ function AppRouter() {
           <Route path="reports" element={<Reports />} />
           <Route path="partnerships" element={<Partnerships />} />
           <Route path="/events-programs" element={<EventsPrograms />} />
+          <Route path="events-programs/:id" element={<EventProgramDetails />} />
           <Route path="staff" element={<Staff />} />
           <Route path="contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />

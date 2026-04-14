@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function MediaCard({ item }) {
   return (
     <div className="media-card">
@@ -11,20 +13,9 @@ function MediaCard({ item }) {
 
         <p>{item.description}</p>
 
-        {item.type === "video" ? (
-          <a
-            href={item.mediaUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-outline"
-          >
-            Watch Video
-          </a>
-        ) : (
-          <a href={item.mediaUrl} target="_blank" className="btn">
-            View Image
-          </a>
-        )}
+        <Link to={`/events-programs/${item.id}`} className="btn">
+          View Details
+        </Link>
       </div>
     </div>
   );
