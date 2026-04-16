@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 function Hero() {
   const heroSlides = [
     {
-      main: "/images/hero-event.jpg",
-      small1: "/images/hero-event-2.jpg",
-      small2: "/images/hero-event-3.jpg",
+      main: "/images/ak1.jpeg",
+      small1: "/images/ak2.jpeg",
+      small2: "/images/ak3.jpeg",
       mainCaption: "Stakeholder Engagement",
       small1Caption: "Education Program",
       small2Caption: "Community Outreach",
@@ -15,9 +15,9 @@ function Hero() {
       small2Link: "/events-programs/3",
     },
     {
-      main: "/images/hero-event-4.jpg",
-      small1: "/images/hero-event-5.jpg",
-      small2: "/images/hero-event-6.jpg",
+      main: "/images/hero1.jpg",
+      small1: "/images/hero2.jpg",
+      small2: "/images/hero3.jpg",
       mainCaption: "Youth Empowerment Session",
       small1Caption: "Health Awareness Campaign",
       small2Caption: "Field Activity",
@@ -26,9 +26,9 @@ function Hero() {
       small2Link: "/events-programs/2",
     },
     {
-      main: "/images/hero-event-7.jpg",
-      small1: "/images/hero-event-8.jpg",
-      small2: "/images/hero-event-9.jpg",
+      main: "/images/kf1.jpeg",
+      small1: "/images/kf2.jpeg",
+      small2: "/images/kf3.jpeg",
       mainCaption: "Agency Program Event",
       small1Caption: "Community Development",
       small2Caption: "Official Engagement",

@@ -114,7 +114,7 @@ function EventsPrograms() {
           </p>
         </div>
 
-        <div className="grid">
+        <div className="grid program-grid">
           {filteredMedia.length > 0 ? (
             filteredMedia.map((item) => <MediaCard key={item.id} item={item} />)
           ) : (
