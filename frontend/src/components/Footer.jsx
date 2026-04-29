@@ -32,7 +32,7 @@ function Footer() {
           <h4>Follow Us</h4>
 
           <div className="social-links">
-            <a href="#" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.facebook.com/share/1BMEauPb1d/" target="_blank" rel="noopener noreferrer">
               <FaFacebook /> Facebook
             </a>
 
@@ -40,15 +40,15 @@ function Footer() {
               <FaTwitter /> Twitter
             </a>
 
-            <a href="#" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.instagram.com/nshcda?igsh=MWJ0NXk2c3ZhMG9hOA==" target="_blank" rel="noopener noreferrer">
               <FaInstagram /> Instagram
             </a>
 
-            <a href="#" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.linkedin.com/company/nasarawastatehcda" target="_blank" rel="noopener noreferrer">
               <FaLinkedin /> LinkedIn
             </a>
 
-            <a href="#" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.youtube.com/@nasarawastatehumancapitaldevel" target="_blank" rel="noopener noreferrer">
               <FaYoutube /> YouTube
             </a>
           </div>

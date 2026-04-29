@@ -1,24 +1,24 @@
 const programs = [
   {
     id: 1,
-    title: "Empower Her",
-    thematicArea: "Social Development",
-    location: "Lafia LGA",
-    description: "Financial Literacy and Economic Inclusion Outreach for Women in Nasarawa State"
+    title: "Youth Revolving Fund Scheme (YRFS)",
+    thematicArea: "Youth",
+    location: "Akwanga LGA",
+    description: "Disbursement of ₦50 million to cooperative societies in Akwanga under the Youth Revolving Fund Scheme (YRFS)"
   },
   {
     id: 2,
-    title: "NELFUND Sensitization Programme",
-    thematicArea: "Education",
-    location: "Nasarawa State",
-    description: "Creating awareness and improving access to student support opportunities."
+    title: "EmpowerHer",
+    thematicArea: "Youth & Social Develpment",
+    location: "Lafia",
+    description: "Financial Literacy and Economic Inclusion Outreach for Women in Nasarawa State"
   },
   {
     id: 3,
-    title: "Youth Skills Development",
+    title: "Youth Revolving Fund Scheme (YRFS)",
     thematicArea: "Youth",
     location: "Keffi LGA",
-    description: "Equipping youth with practical and digital skills for self-reliance."
+    description: "Symbolic Cheque Presentation to Keffi Emirate Cooperative Society under the Youth Revolving Fund Scheme (YRFS)"
   },
   {
     id: 4,

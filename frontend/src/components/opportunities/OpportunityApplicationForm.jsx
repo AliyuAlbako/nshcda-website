@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 
-function OpportunityApplicationForm({ opportunityTitle }) {
+function OpportunityApplicationForm({ opportunityTitle, opportunityId }) {
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -37,33 +37,36 @@ function OpportunityApplicationForm({ opportunityTitle }) {
     }));
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+ const handleSubmit = async (e) => {
+  e.preventDefault();
 
-  if (!formData.cv) return;
+  if (!formData.cv) {
+    alert("Please upload your CV");
+    return;
+  }
+
+  const form = new FormData();
+
+  Object.keys(formData).forEach((key) => {
+    form.append(key, formData[key]);
+  });
+
+  // 👇 VERY IMPORTANT (you added opportunity check in backend)
+  form.append("opportunity", opportunityId);
 
   try {
-    const payload = new FormData();
-    payload.append("opportunity", opportunityId);
-    payload.append("fullName", formData.fullName);
-    payload.append("email", formData.email);
-    payload.append("phone", formData.phone);
-    payload.append("gender", formData.gender);
-    payload.append("lga", formData.lga);
-    payload.append("state", formData.state);
-    payload.append("qualification", formData.qualification);
-    payload.append("statement", formData.statement);
-    payload.append("cv", formData.cv);
-
-    await axios.post("http://localhost:5000/api/applications", payload, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    });
+    await axios.post(
+  `${import.meta.env.VITE_API_URL}/api/applications`,
+  form,
+  {
+    headers: { "Content-Type": "multipart/form-data" },
+  }
+);
 
     setIsSubmitted(true);
   } catch (error) {
     console.error(error);
+    alert("Submission failed. Try again.");
   }
 };
   if (isSubmitted) {

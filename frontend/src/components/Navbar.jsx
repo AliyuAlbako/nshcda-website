@@ -38,7 +38,7 @@ function Navbar() {
           {/* <Link to="/gallery" onClick={closeMenu}>Gallery</Link> */}
           <Link to="/events-programs" onClick={closeMenu}>Events & Programs</Link>
           <Link to="/leadership" onClick={closeMenu}>Leadership</Link>
-          {/* <Link to="/staff" onClick={closeMenu}>Staff Directory</Link> */}
+          <Link to="/staff" onClick={closeMenu}>Staff Directory</Link>
               <Link to="/contact" onClick={closeMenu}>Contact</Link>
         </nav>
       </div>
