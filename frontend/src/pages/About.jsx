@@ -1,19 +1,171 @@
+import { Link } from "react-router-dom";
+
 function About() {
+  const thematicAreas = [
+    "Health & Nutrition",
+    "Education",
+    "Youth Development",
+    "Labour Force Participation",
+    "Social Development",
+    "Local Government & Community Development",
+  ];
+
+  const partnerships = [
+    "National Economic Council (NEC)",
+    "Federal Ministry of Finance",
+    "Development Partners",
+    "Civil Society Organizations",
+    "Community Stakeholders",
+  ];
+
   return (
-    <section className="page-section container">
-      <h1>About NSHCDA</h1>
-      <p>
-        The Nasarawa State Human Capital Development oﬃce then, was conceived in September 2019 by the administration of Engr. Abdullahi A. Sule in a deliberate eﬀort to key into the National Human Capital Development (HCD) Agenda with the appointment of a State Focal Person (FP) and a well-staﬀed and equipped oﬃce set up
-      </p>
+    <section className="page-section">
+      <div className="container">
+        {/* HERO */}
+        <div className="about-hero">
+          <div>
+            <span className="about-badge">About NSHCDA</span>
 
-      <p>
-        This was in response to a clarion call in 2018 by the National Economic Council (NEC) aimed at reducing poverty and ensuring sustainable economic growth. In a document, the HCD Journey, June Ifebe aptly states that “the HCD programme is an eﬀort to accelerate more and better streamlined investments in people for equitable and economic growth in Nigeria”.
+            <h1>
+              Building Human Capital for Sustainable Development in
+              Nasarawa State
+            </h1>
 
-      </p>
+            <p>
+              The Nasarawa State Human Capital Development Office was conceived
+              in September 2019 by the administration of Engr. Abdullahi A.
+              Sule in a deliberate effort to align with the National Human
+              Capital Development Agenda.
+            </p>
+          </div>
 
-      <p>
-        The oﬃce was, however, upgraded to a full-ﬂedged Agency through the Executive Order No. 001 of 2023 and renamed Nasarawa State Human Capital Development Agency (NSHCDA). The Agency seeks to improve the living conditions of the populace of Nasarawa State, its economic and basic life patterns and above all, the need to bring the impact of governance to the door step of the citizens through Human Capital Development (HCD). 
-      </p>
+          <img
+            src="/images/nashcda-hero.png"
+            alt="NSHCDA"
+            className="about-hero-image"
+          />
+        </div>
+
+        {/* STORY */}
+        <div className="card about-section-card">
+          <h2>Our Story</h2>
+
+          <p>
+            This initiative emerged in response to the National Economic
+            Council’s Human Capital Development Agenda aimed at reducing poverty
+            and promoting sustainable economic growth through strategic
+            investments in people.
+          </p>
+
+          <p>
+            The office was later upgraded into a full-fledged Agency through
+            Executive Order No. 001 of 2023 and renamed the Nasarawa State Human
+            Capital Development Agency (NSHCDA).
+          </p>
+
+          <p>
+            The Agency focuses on improving living conditions, strengthening
+            economic opportunities, and ensuring that governance positively
+            impacts citizens through coordinated human capital interventions.
+          </p>
+        </div>
+
+        {/* THEMATIC AREAS */}
+        <div className="card about-section-card">
+          <div className="about-section-header">
+            <div>
+              <h2>Thematic Areas</h2>
+
+              <p>
+                NSHCDA operates across key sectors essential for improving human
+                capital outcomes in Nasarawa State.
+              </p>
+            </div>
+          </div>
+
+          <div className="about-grid-list">
+            {thematicAreas.map((area) => (
+              <div className="about-mini-card" key={area}>
+                {area}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* STAFF DIRECTORY PREVIEW */}
+        <div className="card about-section-card">
+          <div className="about-section-header">
+            <div>
+              <h2>Staff & Institutional Structure</h2>
+
+              <p>
+                Meet the leadership and institutional structure driving the
+                Agency’s mission and operations.
+              </p>
+            </div>
+
+            <Link to="/leadership" className="btn btn-outline">
+              View Leadership
+            </Link>
+          </div>
+
+          <div className="about-staff-preview">
+            <div className="about-mini-stat">
+              <h3>Leadership Team</h3>
+              <p>Chairman, DG and strategic management structure.</p>
+            </div>
+
+            <div className="about-mini-stat">
+              <h3>Member Ministries</h3>
+              <p>Coordinated representation across thematic sectors.</p>
+            </div>
+
+            <div className="about-mini-stat">
+              <h3>Agency Staff</h3>
+              <p>Dedicated personnel supporting implementation statewide.</p>
+            </div>
+          </div>
+        </div>
+
+        {/* PARTNERSHIPS */}
+        <div className="card about-section-card">
+          <h2>Partnerships & Collaboration</h2>
+
+          <p>
+            NSHCDA collaborates with government institutions, development
+            organizations, civil society groups, and community stakeholders to
+            strengthen implementation and impact.
+          </p>
+
+          <div className="about-grid-list">
+            {partnerships.map((partner) => (
+              <div className="about-mini-card" key={partner}>
+                {partner}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* CTA */}
+        <div className="card about-cta-card">
+          <h2>Explore Our Programs & Activities</h2>
+
+          <p>
+            Discover the interventions, events, and strategic initiatives
+            shaping human capital development across Nasarawa State.
+          </p>
+
+          <div className="hero-buttons">
+            <Link to="/programs" className="btn">
+              Explore Programs
+            </Link>
+
+            <Link to="/events-programs" className="btn btn-outline">
+              Events & Highlights
+            </Link>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

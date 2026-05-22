@@ -1,0 +1,47 @@
+/* staff css */
+
+.staff-card {
+  text-align: center;
+  overflow: hidden;
+}
+
+
+
+/* .staff-image {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+} */
+
+.staff-designation {
+  color: #0b3d2e;
+  font-weight: 600;
+}
+
+.staff-group-title {
+  margin-bottom: 1.5rem;
+  color: #0b3d2e;
+  font-size: 1.6rem;
+}
+.staff-image{
+  aspect-ratio: 725 / 720;
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+   object-position: top center;  
+}
+
+/* .staff-image-wrapper {
+  padding-top: 10px;
+  overflow: hidden;
+}
+
+.staff-image-wrapper img {
+  height: 240px;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 10px;
+} */
+

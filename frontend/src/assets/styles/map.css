@@ -1,0 +1,264 @@
+/* ================= MAP PAGE ================= */
+
+.map-page-header {
+  margin-bottom: 2rem;
+}
+
+.map-page-header h1 {
+  margin-bottom: 0.5rem;
+  color: #0b3d2e;
+}
+
+/* ================= FILTERS ================= */
+
+.map-filters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-group label {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #0b3d2e;
+}
+
+.filter-group select {
+  padding: 0.85rem;
+
+  border: 1px solid #d0d7de;
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  font-size: 0.95rem;
+
+  transition: border-color 0.2s ease;
+}
+
+.filter-group select:focus {
+  outline: none;
+  border-color: #0b3d2e;
+}
+
+/* ================= MAP LAYOUT ================= */
+
+.map-layout {
+  margin-top: 2rem;
+
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 1.5rem;
+
+  align-items: start;
+}
+
+.map-placeholder,
+.lga-panel {
+  min-height: 450px;
+}
+
+/* ================= LGA GRID ================= */
+
+.lga-grid {
+  margin-top: 1.2rem;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+
+  gap: 1rem;
+}
+
+/* ================= LGA BUTTON ================= */
+
+.lga-button {
+  border: 1px solid #d6e4dc;
+
+  background: #ffffff;
+
+  border-radius: 12px;
+  padding: 1rem;
+
+  cursor: pointer;
+
+  text-align: left;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+
+  min-height: 95px;
+}
+.lga-button span {
+  word-break: break-word;
+}
+.lga-button:hover {
+  transform: translateY(-3px);
+
+  background: #f8fbf9;
+
+  border-color: #0b3d2e;
+
+  box-shadow: 0 8px 22px rgba(11, 61, 46, 0.08);
+}
+
+/* ================= ACTIVE STATE ================= */
+
+.lga-button.active {
+  background: #0b3d2e;
+  border-color: #0b3d2e;
+}
+
+/* ================= TEXT ================= */
+
+.lga-button span {
+  font-weight: 700;
+
+  color: #0b3d2e;
+
+  font-size: 0.96rem;
+  line-height: 1.35;
+
+  word-break: break-word;
+}
+
+.lga-button small {
+  color: #667085;
+
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+
+.lga-button.active span,
+.lga-button.active small {
+  color: #ffffff;
+}
+
+/* ================= PROGRAM DETAILS ================= */
+
+.lga-program-list {
+  margin-top: 1.5rem;
+}
+
+.lga-program-item {
+  margin-top: 1rem;
+  padding-top: 1rem;
+
+  border-top: 1px solid #e5e7eb;
+}
+
+.lga-program-item h4 {
+  margin-bottom: 0.5rem;
+  color: #0b3d2e;
+}
+
+/* ================= LEAFLET MAP ================= */
+
+.leaflet-map-wrapper {
+  margin-top: 1rem;
+
+  height: 430px;
+  width: 100%;
+
+  border-radius: 12px;
+  overflow: hidden;
+
+  border: 1px solid #e5e7eb;
+}
+
+.leaflet-map {
+  width: 100%;
+  height: 100%;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 992px) {
+  .map-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .lga-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .map-placeholder,
+  .lga-panel {
+    min-height: auto;
+  }
+
+  .leaflet-map-wrapper {
+    height: 320px;
+  }
+}
+
+/* ------------------- */
+ .lga-program-list {
+  margin-top: 1.5rem;
+}
+
+.lga-program-item {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.lga-program-item h4 {
+  margin-bottom: 0.5rem;
+}
+
+.leaflet-map-wrapper {
+  margin-top: 1rem;
+  height: 430px;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.leaflet-map {
+  height: 100%;
+  width: 100%;
+} 
+
+/* LGA labels */
+
+.lga-label {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+
+  color: #0b3d2e !important;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  text-align: center;
+
+  white-space: nowrap;
+}
+
+.leaflet-tooltip-top:before,
+.leaflet-tooltip-bottom:before,
+.leaflet-tooltip-left:before,
+.leaflet-tooltip-right:before {
+  border: none !important;
+}
+
+@media (max-width: 768px) {
+  .lga-label {
+    font-size: 9px;
+  }
+}

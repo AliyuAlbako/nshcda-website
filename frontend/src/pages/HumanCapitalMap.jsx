@@ -2,7 +2,7 @@ import { useMemo, useState, useEffect } from "react";
 import lgaPrograms from "../data/lgaPrograms";
 import MapStats from "../components/map/MapStats";
 import MapFilters from "../components/map/MapFilters";
-// import NasarawaMapPlaceholder from "../components/map/NasarawaMapPlaceholder";
+import NasarawaMapPlaceholder from "../components/map/NasarawaMapPlaceholder";
 import LgaDetailsPanel from "../components/map/LgaDetailsPanel";
 import NasarawaLeafletMap from "../components/map/NasarawaLeafletMap";
 

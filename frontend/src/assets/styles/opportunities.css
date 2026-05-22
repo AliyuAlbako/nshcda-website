@@ -1,0 +1,218 @@
+/* opportunityn css */
+
+.opportunities-hero {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.opportunities-hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.8rem;
+  color: #0b3d2e;
+}
+
+.opportunities-hero p {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.opportunity-filters {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 1rem;
+}
+
+.opportunity-filters input,
+.opportunity-filters select {
+  padding: 0.95rem 1rem;
+  border: 1px solid #d7dee5;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+.opportunity-card {
+  position: relative;
+}
+
+.opportunity-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.status-badge,
+.category-badge {
+  display: inline-block;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.status-badge.open {
+  background: #e8f7ee;
+  color: #18794e;
+}
+
+.status-badge.closed {
+  background: #fdeaea;
+  color: #b42318;
+}
+
+.category-badge {
+  background: #eef4f1;
+  color: #0b3d2e;
+}
+
+.opportunity-desc {
+  margin: 1rem 0 1.2rem;
+}
+
+@media (max-width: 768px) {
+  .opportunity-filters {
+    grid-template-columns: 1fr;
+  }
+
+  .opportunities-hero h1 {
+    font-size: 2rem;
+  }
+}
+.opportunity-details {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.details-meta {
+  margin: 1rem 0 1.5rem;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.details-section {
+  margin-top: 1.5rem;
+}
+
+.details-section h3 {
+  margin-bottom: 0.75rem;
+  color: #0b3d2e;
+}
+
+.details-section ul {
+  padding-left: 1.2rem;
+}
+
+.details-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.disabled-btn {
+  background: #cbd5e1;
+  color: #475569;
+  cursor: not-allowed;
+}
+
+.btn-outline-dark {
+  border: 2px solid #0b3d2e;
+  color: #0b3d2e;
+  padding: 12px 20px;
+  border-radius: 6px;
+  display: inline-block;
+}
+
+.application-form {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.application-form h2 {
+  margin-bottom: 1.5rem;
+  color: #0b3d2e;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.application-form label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.application-form input,
+.application-form select,
+.application-form textarea {
+  width: 100%;
+  padding: 0.95rem 1rem;
+  border: 1px solid #d7dee5;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.application-success {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+.application-success h2 {
+  color: #0b3d2e;
+  margin-bottom: 1rem;
+}
+
+.application-success p {
+  margin-bottom: 0.8rem;
+}
+
+.opportunity-meta-top {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.mode-badge,
+.source-badge {
+  display: inline-block;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.mode-badge.internal {
+  background: #e8f7ee;
+  color: #18794e;
+}
+
+.mode-badge.external {
+  background: #fff4e5;
+  color: #b54708;
+}
+
+.source-badge {
+  background: #eef4f1;
+  color: #0b3d2e;
+}
+
+.external-notice {
+  margin-top: 1.5rem;
+  padding: 1rem 1.2rem;
+  border-left: 4px solid #f4b400;
+  background: #fff9e8;
+  border-radius: 8px;
+}

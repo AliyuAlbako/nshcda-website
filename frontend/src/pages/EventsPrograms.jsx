@@ -47,7 +47,7 @@ function EventsPrograms() {
     <section className="section">
       <div className="container">
         <SectionTitle
-          title="Events & Programs"
+          title="Events & Highlights"
           subtitle="Explore NSHCDA’s past events, field activities, and program interventions across the state."
         />
 

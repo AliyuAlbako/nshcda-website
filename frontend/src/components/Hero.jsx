@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 function Hero() {
   const heroSlides = [
     {
-      main: "/images/ak1.jpeg",
-      small1: "/images/ak2.jpeg",
-      small2: "/images/ak3.jpeg",
+      main: "/images/ak2.jpeg",
+      small1: "/images/ak3.jpeg",
+      small2: "/images/ak4.jpeg",
       mainCaption: "Youth Revolving Fund Scheme (YRFS), Akwanga",
       small1Caption: "Youth Development",
       small2Caption: "Interest-free loan ",

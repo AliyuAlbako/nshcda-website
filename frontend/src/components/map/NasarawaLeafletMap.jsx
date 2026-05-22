@@ -125,6 +125,12 @@ function NasarawaLeafletMap({
         Beneficiaries: ${beneficiaries}
       </div>
     `);
+    layer.bindTooltip(lgaName, {
+   permanent: true,
+    direction: "center",
+  className: "lga-label",
+    });
+    
   };
 
   const geoJsonKey = useMemo(() => {

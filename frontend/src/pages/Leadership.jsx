@@ -27,11 +27,12 @@ function Leadership() {
 
           <div className="ministries-grid">
             {leadership.memberMinistries.map((ministry) => (
-              <div className="ministry-item" key={ministry}>
-                {ministry}
-              </div>
-            ))}
-          </div>
+    <       div className="ministry-item" key={ministry.name}>
+              <img src={ministry.logo} alt={ministry.name} />
+              <span>{ministry.name}</span>
+           </div>
+              ))}
+            </div>
         </div>
       </div>
     </section>

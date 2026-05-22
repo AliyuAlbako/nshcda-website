@@ -9,7 +9,7 @@ function MediaPreview() {
     <section className="section">
       <div className="container">
         <SectionTitle
-          title="Media & History"
+          title="Events & Highlights"
           subtitle="Highlights from our past events, programs, and interventions."
         />
 
@@ -20,8 +20,8 @@ function MediaPreview() {
         </div>
 
         <div style={{ textAlign: "center", marginTop: "2rem" }}>
-          <a href="/media" className="btn">
-            Explore Full Archive
+          <a href="/events-programs"className="btn">
+            Explore Events & Highlights
           </a>
         </div>
       </div>
