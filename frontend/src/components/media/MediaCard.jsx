@@ -1,23 +1,52 @@
 import { Link } from "react-router-dom";
 
 function MediaCard({ item }) {
-  return (
-    <div className="media-card">
-      <img src={item.thumbnail} alt={item.title} />
+  const badgeText =
+    item.type === "video"
+      ? "Video"
+      : item.category === "news"
+      ? "News"
+      : "Highlight";
 
-      <div className="media-content">
-        <h3>{item.title}</h3>
-        <p className="media-meta">
+  const badgeClass =
+    item.type === "video"
+      ? "news-badge-video"
+      : item.category === "news"
+      ? "news-badge-news"
+      : "news-badge-highlight";
+
+  return (
+    <article className="news-card">
+      <div className="news-image-wrapper">
+        <img
+          src={item.thumbnail}
+          alt={item.title}
+        />
+
+        <span className={`news-badge ${badgeClass}`}>
+          {badgeText}
+        </span>
+      </div>
+
+      <div className="news-content">
+        <p className="news-meta">
           {item.date} • {item.location}
         </p>
 
-        <p>{item.description}</p>
+        <h3>{item.title}</h3>
 
-        <Link to={`/events-programs/${item.id}`} className="btn">
-          View Details
+        <p className="news-description">
+          {item.description}
+        </p>
+
+        <Link
+         to={`/news-highlights/${item.slug}`}
+         className="news-link"
+          >
+          Read Story →
         </Link>
       </div>
-    </div>
+    </article>
   );
 }
 

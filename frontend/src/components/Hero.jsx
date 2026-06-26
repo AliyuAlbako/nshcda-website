@@ -1,42 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import heroSlides from "../data/heroSlides";
 
 function Hero() {
-  const heroSlides = [
-    {
-      main: "/images/ak2.jpeg",
-      small1: "/images/ak3.jpeg",
-      small2: "/images/ak4.jpeg",
-      mainCaption: "Youth Revolving Fund Scheme (YRFS), Akwanga",
-      small1Caption: "Youth Development",
-      small2Caption: "Interest-free loan ",
-      mainLink: "/events-programs/1",
-      small1Link: "/events-programs/1",
-      small2Link: "/events-programs/1",
-    },
-    {
-      main: "/images/hero1.jpg",
-      small1: "/images/hero2.jpg",
-      small2: "/images/hero3.jpg",
-      mainCaption: "EmpowerHer",
-      small1Caption: "Financial education",
-      small2Caption: "Interacting session",
-      mainLink: "/events-programs/2",
-      small1Link: "/events-programs/2",
-      small2Link: "/events-programs/2",
-    },
-    {
-      main: "/images/kf1.jpeg",
-      small1: "/images/kf2.jpeg",
-      small2: "/images/kf3.jpeg",
-      mainCaption: "Youth Revolving Fund Scheme (YRFS), Keffi",
-      small1Caption: "Youth Development",
-      small2Caption: "Interest-free loan",
-      mainLink: "/events-programs/3",
-      small1Link: "/events-programs/3",
-      small2Link: "/events-programs/3",
-    },
-  ];
+  
 
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
@@ -93,7 +60,7 @@ function Hero() {
               Explore Programs
             </Link>
 
-            <Link to="/events-programs" className="btn btn-outline">
+            <Link to="/news-highlights" className="btn btn-outline">
               View Events & Programs
             </Link>
           </div>

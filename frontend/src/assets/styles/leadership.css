@@ -121,15 +121,26 @@
   margin-bottom: 0.8rem;
 }
 
-.ministries-grid {
+/* .ministries-grid {
   margin-top: 1.5rem;
 
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1rem;
+} */
+
+.ministries-grid {
+  margin-top: 1.5rem;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(240px, 1fr));
+
+  gap: 1rem;
 }
 
-.ministry-item {
+/* .ministry-item {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -141,6 +152,30 @@
   border-radius: 8px;
 
   font-weight: 600;
+} */
+
+.ministry-item {
+  background: white;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 12px;
+
+  padding: 1rem;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  transition: all 0.25s ease;
+}
+
+.ministry-item:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
 .ministry-item img {
@@ -275,4 +310,379 @@
   .leader-card:not(.chairman-card) .leader-image {
     height: 300px;
   }
+}
+
+/* ===========================
+   ORGANOGRAM
+=========================== */
+
+.leadership-organogram {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-bottom: 3rem;
+}
+
+.organogram-chairman {
+  width: 100%;
+  max-width: 550px;
+}
+
+.organogram-dg {
+  width: 100%;
+  max-width: 450px;
+}
+
+.organogram-line {
+  width: 4px;
+  height: 70px;
+
+  background: #0b3d2e;
+
+  margin: 1rem 0;
+
+  position: relative;
+}
+
+.organogram-line::after {
+  content: "";
+
+  position: absolute;
+
+  bottom: -10px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 14px solid #0b3d2e;
+}
+
+
+/* strengthening .chairman */
+
+.organogram-chairman .chairman-card {
+  transform: scale(1.05);
+
+  border: 3px solid #f4b400;
+
+  box-shadow:
+    0 12px 30px rgba(244, 180, 0, 0.25);
+}
+
+/* =======================organogram 2=========== */
+/* =========================
+   ORGANOGRAM STRUCTURE
+========================= */
+
+.organogram-level {
+  display: flex;
+  justify-content: center;
+}
+
+.chairman-level {
+  margin-bottom: 1rem;
+}
+
+.dg-level {
+  margin-bottom: 2rem;
+}
+
+.organogram-vertical-line {
+  width: 4px;
+  height: 70px;
+
+  background: #0b3d2e;
+
+  margin: 0 auto;
+}
+
+.organogram-horizontal-line {
+  width: 100%;
+  height: 4px;
+
+  background: #0b3d2e;
+
+  margin: 2rem 0;
+}
+
+/* =========================
+   COUNCIL MEMBERS
+========================= */
+
+.council-members-section {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.council-members-section h2 {
+  color: #0b3d2e;
+  margin-bottom: 0.5rem;
+}
+
+.council-members-section p {
+  max-width: 900px;
+  margin: auto;
+  margin-bottom: 2rem;
+}
+
+.council-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(220px, 1fr));
+
+  gap: 1.5rem;
+}
+
+.council-member-card {
+  background: white;
+
+  border-radius: 12px;
+
+  padding: 1rem;
+
+  border: 1px solid #e5e7eb;
+
+  transition: all 0.25s ease;
+}
+
+.council-member-card:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.council-member-card img {
+  width: 70px;
+  height: 70px;
+
+  object-fit: contain;
+
+  margin: 0 auto 1rem;
+}
+
+.council-member-card h4 {
+  font-size: 0.95rem;
+  color: #0b3d2e;
+
+  margin-bottom: 0.5rem;
+}
+
+.council-member-card span {
+  color: #667085;
+  font-size: 0.85rem;
+}
+
+/* ============================enhanced for members head images ====================*/
+/* Council Members */
+
+.council-member {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+
+  padding: 1rem;
+}
+
+.member-image-wrapper {
+  width: 120px;
+  height: 120px;
+
+  margin-bottom: 1rem;
+}
+
+.member-image {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: top;
+
+  border-radius: 50%;
+
+  border: 3px solid #eef4f1;
+}
+
+.member-content h4 {
+  color: #0b3d2e;
+  margin-bottom: 0.5rem;
+}
+
+.member-designation {
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 0.5rem;
+}
+
+.member-institution {
+  font-size: 0.9rem;
+  color: #667085;
+  margin-bottom: 0.8rem;
+}
+
+.member-category {
+  display: inline-block;
+
+  background: #eef4f1;
+  color: #0b3d2e;
+
+  padding: 4px 10px;
+
+  border-radius: 20px;
+
+  font-size: 0.75rem;
+  font-weight: 600;
+
+  margin-bottom: 0.8rem;
+}
+
+.member-logo {
+  width: 50px;
+  height: 50px;
+
+  object-fit: contain;
+
+  margin-top: auto;
+}
+
+/* ===========================
+   ORGANOGRAM BRANCH
+=========================== */
+
+.organogram-branch {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  margin-bottom: 2rem;
+}
+
+.branch-horizontal {
+  width: 80%;
+  height: 4px;
+
+  background: #0b3d2e;
+
+  position: relative;
+}
+
+.council-member-wrapper {
+  position: relative;
+}
+
+.member-connector {
+  width: 4px;
+  height: 30px;
+
+  background: #0b3d2e;
+
+  margin: 0 auto;
+}
+
+
+/* Executive Organogram */
+
+.leadership-organogram {
+  max-width: 650px;
+  margin: 0 auto 4rem;
+}
+
+.organogram-line {
+  width: 4px;
+  height: 60px;
+  background: #0b3d2e;
+  margin: 0 auto;
+}
+
+/* Council Section */
+
+.council-members-section {
+  margin-top: 2rem;
+}
+
+.council-grid {
+  margin-top: 2rem;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+
+  gap: 1.5rem;
+}
+
+.council-card {
+  background: white;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+
+  padding: 1rem;
+
+  transition: all 0.25s ease;
+}
+
+.council-card:hover {
+  transform: translateY(-4px);
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.council-card-top {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.council-photo {
+  width: 80px;
+  height: 80px;
+
+  border-radius: 50%;
+
+  object-fit: cover;
+  object-position: top;
+}
+
+.council-info h4 {
+  margin-bottom: 0.3rem;
+  color: #0b3d2e;
+}
+
+.designation {
+  font-size: 0.9rem;
+  color: #667085;
+}
+
+.category {
+  display: inline-block;
+
+  margin-top: 0.4rem;
+
+  background: #eef4f1;
+  color: #0b3d2e;
+
+  padding: 4px 10px;
+  border-radius: 20px;
+
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.institution-row {
+  margin-top: 1rem;
+
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.institution-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
 }

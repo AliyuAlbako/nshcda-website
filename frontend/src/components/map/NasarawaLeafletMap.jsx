@@ -20,11 +20,11 @@ function FitBounds({ geoData }) {
 }
 
 function NasarawaLeafletMap({
-  selectedLga,
-  setSelectedLga,
-  lgaCounts,
-  filteredData,
-}) {
+  selectedLga = "",
+  setSelectedLga = () => {},
+  lgaCounts = {},
+  filteredData = [],
+})  {
   const [geoData, setGeoData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [loadError, setLoadError] = useState("");

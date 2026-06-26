@@ -53,74 +53,190 @@ const leadership = {
   //   "Nasarawa State Ministry for Local Government,  Chieftaincy Affairs and Community Development",
   // ],
 
-  memberMinistries: [
+  councilMembers: [
   {
-    name: "Nasarawa State Ministry of Health",
+    id: 1,
+    name: "HRS. Hon. Justice Sidi Bage Muhammad I JSC Rtd ",
+    designation: "Emir",
+    institution: "Nasarawa State Traditional Council of Chiefs",
+    category: "Chiefdom",
+    image: "/images/leadership/emir5.jpg",
     logo: "/images/ministries/nas_logo.png",
   },
   {
-    name: "Nasarawa State Ministry of Education, Science & Technology",
+    id: 2,
+    name: "Dr. Gaza Gwamna",
+    designation: "Hon. Commissioner",
+    institution: "Nasarawa State Ministry of Health",
+    category: "Ministry",
+    image: "/images/leadership/health.jpg",
     logo: "/images/ministries/nas_logo.png",
   },
+
   {
-    name: "Nasarawa State Ministry of Youth & Sports Development",
+    id: 3,
+    name: "To Be Updated",
+    designation: "Hon. Commissioner",
+    institution: "Nasarawa State Ministry of Education, Science & Technology",
+    category: "Ministry",
+    image: "/images/leadership/placeholder.jpg",
     logo: "/images/ministries/nas_logo.png",
   },
+
   {
-    name: "Nasarawa State Ministry of Labour and Employment",
+    id: 4,
+    name: "Hon. Kwanta Yakubu ",
+    designation: "Hon. Commissioner",
+    institution: "Nasarawa State Ministry of Youth & Sports Development",
+    category: "Ministry",
+    image: "/images/leadership/kwanta.jpeg",
     logo: "/images/ministries/nas_logo.png",
   },
+
   {
-    name: "Executive Secretary, Nasarawa State Primary Healthcare Development Agency (NAPHDA)",
+    id: 5,
+    name: "To Be Updated",
+    designation: "Hon. Commissioner",
+    institution: "Nasarawa State Ministry of Labour and Employment",
+    category: "Ministry",
+    image: "/images/leadership/placeholder.jpg",
     logo: "/images/ministries/nas_logo.png",
   },
+
   {
-    name: "Executive Secretary, Nasarawa State Health Insurance Agency",
+    id: 6,
+    name: "To Be Updated",
+    designation: "Executive Secretary",
+    institution:
+      "Nasarawa State Primary Healthcare Development Agency (NAPHDA)",
+    category: "Agency",
+    image: "/images/leadership/placeholder.jpg",
     logo: "/images/ministries/nas_logo.png",
   },
+
   {
-    name: "Nasarawa State Universal Basic Education Board",
+    id: 7,
+    name: "To Be Updated",
+    designation: "Executive Secretary",
+    institution: "Nasarawa State Health Insurance Agency",
+    category: "Agency",
+    image: "/images/leadership/placeholder.jpg",
     logo: "/images/ministries/nas_logo.png",
   },
+
   {
-    name: "Nasarawa State Ministry of Information, Culture & Tourism",
+    id: 8,
+    name: "To Be Updated",
+    designation: "Executive Chairman",
+    institution: "Nasarawa State Universal Basic Education Board",
+    category: "Agency",
+    image: "/images/leadership/placeholder.jpg",
     logo: "/images/ministries/nas_logo.png",
   },
+
   {
-    name: "Director General, Nasarawa State Information Technology & Digital Economy Agency (NASITDEA)",
+    id: 9,
+    name: "Dr. Ibrahim Tanko",
+    designation: "Hon. Commissioner",
+    institution:
+      "Nasarawa State Ministry of Information, Culture & Tourism",
+    category: "Ministry",
+    image: "/images/leadership/placeholder.jpg",
     logo: "/images/ministries/nas_logo.png",
   },
+
   {
-    name: "Nasarawa State Ministry of Local Government, Community Development & Chieftaincy Affairs",
+    id: 10,
+    name: "To Be Updated",
+    designation: "Director General",
+    institution:
+      "Nasarawa State Information Technology & Digital Economy Agency (NASITDEA)",
+    category: "Agency",
+    image: "/images/leadership/placeholder.jpg",
     logo: "/images/ministries/nas_logo.png",
   },
+
   {
-    name: "Nasarawa State Ministry of Finance, Budget and Economic Planning",
+    id: 11,
+    name: "Hon. Aminu Mu’azu Maifata",
+    designation: "Hon. Commissioner",
+    institution:
+      "Nasarawa State Ministry of Local Government, Community Development & Chieftaincy Affairs",
+    category: "Ministry",
+    image: "/images/leadership/placeholder.jpg",
     logo: "/images/ministries/nas_logo.png",
   },
+
   {
-    name: "Nasarawa State Ministry of Women Affairs & Social Development",
+    id: 12,
+    name: "To Be Updated",
+    designation: "Hon. Commissioner",
+    institution:
+      "Nasarawa State Ministry of Finance, Budget and Economic Planning",
+    category: "Ministry",
+    image: "/images/leadership/placeholder.jpg",
     logo: "/images/ministries/nas_logo.png",
   },
+
   {
-    name: "Chairman Christian Association of Nigeria, Nasarawa State Chapter (CAN)",
+    id: 13,
+    name: "To Be Updated",
+    designation: "Hon. Commissioner",
+    institution:
+      "Nasarawa State Ministry of Women Affairs & Social Development",
+    category: "Ministry",
+    image: "/images/leadership/placeholder.jpg",
     logo: "/images/ministries/nas_logo.png",
   },
+
   {
-    name: "Chairman, Jama'atu Nasril Islam (JNI)",
+    id: 14,
+    name: "To Be Updated",
+    designation: "State Chairman",
+    institution:
+      "Christian Association of Nigeria (CAN), Nasarawa State Chapter",
+    category: "Religious Institution",
+    image: "/images/leadership/placeholder.jpg",
     logo: "/images/ministries/nas_logo.png",
   },
+
   {
-    name: "SSA and Focal Person, Sustainable Development Goals (SDG’s)",
+    id: 15,
+    name: "To Be Updated",
+    designation: "State Chairman",
+    institution: "Jama'atu Nasril Islam (JNI)",
+    category: "Religious Institution",
+    image: "/images/leadership/placeholder.jpg",
     logo: "/images/ministries/nas_logo.png",
   },
-  
+
   {
-    name: "Executive Chairman, Nasarawa State Disability Rights Commission",
+    id: 16,
+    name: "To Be Updated",
+    designation: "SSA & State Focal Person",
+    institution: "Sustainable Development Goals (SDGs)",
+    category: "Government Office",
+    image: "/images/leadership/placeholder.jpg",
     logo: "/images/ministries/nas_logo.png",
   },
+
   {
-    name: "Director General, Nasarawa State Social Investment Agency (NSSIA)",
+    id: 17,
+    name: "To Be Updated",
+    designation: "Executive Chairman",
+    institution: "Nasarawa State Disability Rights Commission",
+    category: "Agency",
+    image: "/images/leadership/placeholder.jpg",
+    logo: "/images/ministries/nas_logo.png",
+  },
+
+  {
+    id: 18,
+    name: "To Be Updated",
+    designation: "Director General",
+    institution: "Nasarawa State Social Investment Agency (NSSIA)",
+    category: "Agency",
+    image: "/images/leadership/placeholder.jpg",
     logo: "/images/ministries/nas_logo.png",
   },
 ],

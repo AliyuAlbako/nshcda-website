@@ -10,9 +10,9 @@ function Hero() {
       mainCaption: "Stakeholder Engagement",
       small1Caption: "Education Program",
       small2Caption: "Community Outreach",
-      mainLink: "/events-programs/1",
-      small1Link: "/events-programs/2",
-      small2Link: "/events-programs/3",
+      mainLink: "/news-highlights/1",
+      small1Link: "/news-highlights/2",
+      small2Link: "/news-highlights/3",
     },
     {
       main: "/images/hero-event-4.jpg",
@@ -21,9 +21,9 @@ function Hero() {
       mainCaption: "Youth Empowerment Session",
       small1Caption: "Health Awareness Campaign",
       small2Caption: "Field Activity",
-      mainLink: "/events-programs/4",
-      small1Link: "/events-programs/1",
-      small2Link: "/events-programs/2",
+      mainLink: "/news-highlights/4",
+      small1Link: "/news-highlights/1",
+      small2Link: "/news-highlights/2",
     },
     {
       main: "/images/hero-event-7.jpg",
@@ -32,9 +32,9 @@ function Hero() {
       mainCaption: "Agency Program Event",
       small1Caption: "Community Development",
       small2Caption: "Official Engagement",
-      mainLink: "/events-programs/3",
-      small1Link: "/events-programs/4",
-      small2Link: "/events-programs/1",
+      mainLink: "/news-highlights/3",
+      small1Link: "/news-highlights/4",
+      small2Link: "/news-highlights/1",
     },
   ];
 
@@ -93,7 +93,7 @@ function Hero() {
               Explore Programs
             </Link>
 
-            <Link to="/events-programs" className="btn btn-outline">
+            <Link to="/news-highlights" className="btn btn-outline">
               View Events & Programs
             </Link>
           </div>

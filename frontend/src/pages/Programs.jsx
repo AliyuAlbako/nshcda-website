@@ -7,10 +7,20 @@ function Programs() {
   return (
     <section className="page-section">
       <div className="container">
-        <SectionTitle
-          title="Programs & Interventions"
-          subtitle="Explore NSHCDA’s strategic programs and human capital development interventions across thematic sectors."
-        />
+        <div className="programs-hero">
+            <span className="programs-badge">
+              Strategic Interventions
+            </span>
+
+            <h1>Programs & Interventions</h1>
+
+            <p>
+              NSHCDA implements strategic human capital
+              development programmes across education,
+              health, youth empowerment, workforce
+              development and social inclusion.
+            </p>
+          </div>
 
         {thematicAreas.map((area) => {
           // Support multiple thematic areas per program

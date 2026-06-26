@@ -1,6 +1,6 @@
 import SectionTitle from "../SectionTitle";
 import MediaCard from "../media/MediaCard";
-import media from "../../data/media";
+import media from "../../data/newsHighlights";
 
 function MediaPreview() {
   const featured = media.filter((item) => item.featured).slice(0, 3);
@@ -20,7 +20,7 @@ function MediaPreview() {
         </div>
 
         <div style={{ textAlign: "center", marginTop: "2rem" }}>
-          <a href="/events-programs"className="btn">
+          <a href="/news-highlights"className="btn">
             Explore Events & Highlights
           </a>
         </div>

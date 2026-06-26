@@ -128,7 +128,7 @@ function About() {
         </div>
 
         {/* PARTNERSHIPS */}
-        <div className="card about-section-card">
+        {/* <div className="card about-section-card">
           <h2>Partnerships & Collaboration</h2>
 
           <p>
@@ -144,7 +144,7 @@ function About() {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
 
         {/* CTA */}
         <div className="card about-cta-card">
@@ -160,8 +160,8 @@ function About() {
               Explore Programs
             </Link>
 
-            <Link to="/events-programs" className="btn btn-outline">
-              Events & Highlights
+            <Link to="/news-highlights" className="btn btn-outline">
+              News & Highlights
             </Link>
           </div>
         </div>

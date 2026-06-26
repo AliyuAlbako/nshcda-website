@@ -1,5 +1,7 @@
+
 import { useParams, Link } from "react-router-dom";
 import programs from "../data/programs";
+import ProgramCard from "../components/programs/ProgramCard";
 
 function ProgramDetails() {
   const { slug } = useParams();
@@ -18,11 +20,21 @@ function ProgramDetails() {
     );
   }
 
+  const relatedPrograms = programs
+    .filter(
+      (item) =>
+        item.slug !== program.slug &&
+        item.category === program.category
+    )
+    .slice(0, 3);
+
   return (
     <section className="page-section">
       <div className="container">
+
         {/* HERO */}
         <div className="program-details-hero">
+
           <img
             src={program.image}
             alt={program.title}
@@ -30,132 +42,164 @@ function ProgramDetails() {
           />
 
           <div className="program-details-content">
+
             <span className="program-category">
-              {program.thematicArea}
+              {program.category}
             </span>
 
             <h1>{program.title}</h1>
 
-            <p>{program.oneLineSummary}</p>
+            <p>
+              {program.oneLineSummary}
+            </p>
 
             {program.year && (
-              <p>
-                <strong>Duration:</strong> {program.year}
-              </p>
+              <div className="program-meta">
+                <span>
+                  Duration: {program.year}
+                </span>
+              </div>
             )}
+
           </div>
         </div>
 
         {/* OVERVIEW */}
         <div className="card details-section">
           <h2>Overview</h2>
-          <p>{program.overview}</p>
+
+          <p>
+            {program.overview}
+          </p>
         </div>
 
         {/* OBJECTIVES */}
         {program.objectives?.length > 0 && (
-          <div className="card details-section">
-            <h2>Objectives</h2>
+          <div className="details-section">
 
-            <ul className="details-list">
-              {program.objectives.map((item, index) => (
-                <li key={index}>{item}</li>
-              ))}
-            </ul>
+            <h2>Key Objectives</h2>
+
+            <div className="objective-grid">
+              {program.objectives.map(
+                (item, index) => (
+                  <div
+                    key={index}
+                    className="objective-card"
+                  >
+                    {item}
+                  </div>
+                )
+              )}
+            </div>
+
           </div>
         )}
 
-        {/* FOCUS AREAS */}
-        {program.focusAreas?.length > 0 && (
+        {/* EXPECTED IMPACT */}
+        {(program.expectedOutcomes?.length > 0 ||
+          program.impactSummary) && (
           <div className="card details-section">
-            <h2>Focus Areas</h2>
 
-            <ul className="details-list">
-              {program.focusAreas.map((item, index) => (
-                <li key={index}>{item}</li>
-              ))}
-            </ul>
-          </div>
-        )}
+            <h2>
+              Expected Impact
+            </h2>
 
-        {/* STRATEGIC IMPORTANCE */}
-        {program.strategicImportance?.length > 0 && (
-          <div className="card details-section">
-            <h2>Strategic Importance</h2>
+            {program.expectedOutcomes?.length > 0 && (
+              <ul className="details-list">
+                {program.expectedOutcomes.map(
+                  (item, index) => (
+                    <li key={index}>
+                      {item}
+                    </li>
+                  )
+                )}
+              </ul>
+            )}
 
-            <ul className="details-list">
-              {program.strategicImportance.map((item, index) => (
-                <li key={index}>{item}</li>
-              ))}
-            </ul>
-          </div>
-        )}
+            {program.impactSummary && (
+              <p
+                style={{
+                  marginTop: "1rem",
+                }}
+              >
+                {program.impactSummary}
+              </p>
+            )}
 
-        {/* IMPLEMENTATION APPROACH */}
-        {program.implementationApproach?.length > 0 && (
-          <div className="card details-section">
-            <h2>Implementation Approach</h2>
-
-            <ul className="details-list">
-              {program.implementationApproach.map((item, index) => (
-                <li key={index}>{item}</li>
-              ))}
-            </ul>
-          </div>
-        )}
-
-        {/* EXPECTED OUTCOMES */}
-        {program.expectedOutcomes?.length > 0 && (
-          <div className="card details-section">
-            <h2>Expected Outcomes</h2>
-
-            <ul className="details-list">
-              {program.expectedOutcomes.map((item, index) => (
-                <li key={index}>{item}</li>
-              ))}
-            </ul>
-          </div>
-        )}
-
-        {/* IMPACT SUMMARY */}
-        {program.impactSummary && (
-          <div className="card details-section">
-            <h2>Impact Summary</h2>
-            <p>{program.impactSummary}</p>
           </div>
         )}
 
         {/* GALLERY */}
         {program.gallery?.length > 0 && (
           <div className="details-section">
-            <h2>Program Gallery</h2>
+
+            <h2>
+              Program Gallery
+            </h2>
 
             <div className="program-gallery-grid">
-              {program.gallery.map((image, index) => (
-                <img
-                  key={index}
-                  src={image}
-                  alt={`${program.title} ${index + 1}`}
-                  className="program-gallery-image"
-                />
-              ))}
+              {program.gallery.map(
+                (image, index) => (
+                  <img
+                    key={index}
+                    src={image}
+                    alt={`${program.title} ${
+                      index + 1
+                    }`}
+                    className="program-gallery-image"
+                  />
+                )
+              )}
             </div>
+
+          </div>
+        )}
+
+        {/* RELATED PROGRAMS */}
+        {relatedPrograms.length > 0 && (
+          <div className="details-section">
+
+            <h2>
+              Related Programs
+            </h2>
+
+            <div className="grid program-grid">
+              {relatedPrograms.map(
+                (item) => (
+                  <ProgramCard
+                    key={item.id}
+                    program={item}
+                  />
+                )
+              )}
+            </div>
+
           </div>
         )}
 
         {/* CTA */}
         <div className="card program-cta-card">
-          <h2>Explore More Programs</h2>
+
+          <h2>
+            Explore More Programs
+          </h2>
 
           <p>
-            Discover more strategic initiatives and interventions implemented
-            across Nasarawa State.
+            Discover more strategic
+            initiatives and interventions
+            implemented across Nasarawa
+            State.
           </p>
 
-          <Link to="/programs" className="btn">
+          <Link
+            to="/programs"
+            className="btn"
+          >
             Back to Programs
           </Link>
+
         </div>
+
       </div>
     </section>
   );

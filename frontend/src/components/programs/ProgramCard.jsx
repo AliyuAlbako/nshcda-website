@@ -1,16 +1,3 @@
-// function ProgramCard({ program }) {
-//   return (
-//     <div className="card">
-//       <h3>{program.title}</h3>
-//       <p><strong>Thematic Area:</strong> {program.thematicArea}</p>
-//       <p><strong>Location:</strong> {program.location}</p>
-//       <p>{program.description}</p>
-//     </div>
-//   );
-// }
-
-// export default ProgramCard;
-
 import { Link } from "react-router-dom";
 
 function ProgramCard({ program }) {
@@ -20,12 +7,31 @@ function ProgramCard({ program }) {
       className="program-card-link"
     >
       <div className="card program-card">
-        <img src={program.image} alt={program.title} />
 
-        <div className="program-content">
+        <img
+          src={program.image}
+          alt={program.title}
+          className="program-image"
+        />
+
+        <div className="program-card-content">
+
+          <span className="program-badge">
+            {program.category}
+          </span>
+
           <h3>{program.title}</h3>
-          <p>{program.shortDescription}</p>
+
+          <p>
+            {program.oneLineSummary}
+          </p>
+
+          <div className="program-read-more">
+            View Program →
+          </div>
+
         </div>
+
       </div>
     </Link>
   );

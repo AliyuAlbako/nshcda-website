@@ -36,7 +36,7 @@ function Navbar() {
           <Link to="/reports" onClick={closeMenu}>Reports</Link>
            <Link to="/partnerships" onClick={closeMenu}>Partnerships</Link> 
            <Link to="/gallery" onClick={closeMenu}>Gallery</Link> 
-          <Link to="/events-programs" onClick={closeMenu}>Events & Programs</Link>
+          <Link to="/news-highlights" onClick={closeMenu}>Events & Programs</Link>
           <Link to="/leadership" onClick={closeMenu}>Leadership</Link>
           <Link to="/staff" onClick={closeMenu}>Staff Directory</Link>
           <Link to="/contact" onClick={closeMenu}>Contact</Link>
@@ -47,11 +47,13 @@ function Navbar() {
     <Link to="/" onClick={closeMenu}> Home</Link>
     <Link to="/about" onClick={closeMenu}> About </Link>
     <Link to="/programs" onClick={closeMenu}> Programs</Link>
-    <Link to="/events-programs" onClick={closeMenu}> Events & Highlights </Link>
+    {/* <Link to="/news-highlights" onClick={closeMenu}> Events & Highlights </Link> */}
+    <Link to="/news-highlights" onClick={closeMenu}>News & Highlights</Link>
     <Link to="/opportunities" onClick={closeMenu}> Opportunities </Link>
     <Link to="/human-capital-map" onClick={closeMenu}>Human Capital Map</Link>
     <Link to="/leadership" onClick={closeMenu}> Leadership</Link>
     <Link to="/staff" onClick={closeMenu}>Staff Directory</Link>
+    <Link to="/marketplace" onClick={closeMenu}>Marketplace </Link>
     <Link to="/contact" onClick={closeMenu}> Contact</Link>
 </nav>
         
