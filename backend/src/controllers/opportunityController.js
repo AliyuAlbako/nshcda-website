@@ -119,8 +119,10 @@ const updateOpportunity = async (req, res) => {
     opportunity.location = location ?? opportunity.location;
     opportunity.deadline = deadline ?? opportunity.deadline;
     opportunity.status = status ?? opportunity.status;
-    opportunity.featured =
-      typeof featured === "boolean" ? featured : opportunity.featured;
+   if (featured !== undefined) {
+  opportunity.featured =
+    featured === true || featured === "true";
+    }
     opportunity.applicationMode =
       applicationMode ?? opportunity.applicationMode;
     opportunity.source = source ?? opportunity.source;
