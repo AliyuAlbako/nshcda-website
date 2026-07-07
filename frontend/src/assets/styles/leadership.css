@@ -80,7 +80,7 @@
 }
 
 .chairman-card::before {
-  content: "Board Chairman";
+  content: "Council Chairman";
 
   position: absolute;
   top: 16px;
@@ -239,7 +239,7 @@
 
 /* Chairman badge */
 .chairman-card::before {
-  content: "Board Chairman";
+  content: "Council Chairman";
   position: absolute;
   top: 16px;
   left: 16px;
@@ -290,7 +290,7 @@
   }
 
   .leader-card:not(.chairman-card) {
-    margin-top: 0;
+    margin-top: 1;
   }
 
   .chairman-card .leader-image {
@@ -334,31 +334,8 @@
   max-width: 450px;
 }
 
-.organogram-line {
-  width: 4px;
-  height: 70px;
 
-  background: #0b3d2e;
 
-  margin: 1rem 0;
-
-  position: relative;
-}
-
-.organogram-line::after {
-  content: "";
-
-  position: absolute;
-
-  bottom: -10px;
-  left: 50%;
-
-  transform: translateX(-50%);
-
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-top: 14px solid #0b3d2e;
-}
 
 
 /* strengthening .chairman */
@@ -372,41 +349,7 @@
     0 12px 30px rgba(244, 180, 0, 0.25);
 }
 
-/* =======================organogram 2=========== */
-/* =========================
-   ORGANOGRAM STRUCTURE
-========================= */
 
-.organogram-level {
-  display: flex;
-  justify-content: center;
-}
-
-.chairman-level {
-  margin-bottom: 1rem;
-}
-
-.dg-level {
-  margin-bottom: 2rem;
-}
-
-.organogram-vertical-line {
-  width: 4px;
-  height: 70px;
-
-  background: #0b3d2e;
-
-  margin: 0 auto;
-}
-
-.organogram-horizontal-line {
-  width: 100%;
-  height: 4px;
-
-  background: #0b3d2e;
-
-  margin: 2rem 0;
-}
 
 /* =========================
    COUNCIL MEMBERS
@@ -685,4 +628,112 @@
   width: 40px;
   height: 40px;
   object-fit: contain;
+}
+
+/* ==========================================
+   GOVERNING COUNCIL MEMBERS
+========================================== */
+
+.council-members-section{
+    margin-top:4rem;
+}
+
+.council-members-section h2{
+    text-align:center;
+    color:#0b3d2e;
+    margin-bottom:.6rem;
+}
+
+.council-members-section>p{
+    max-width:850px;
+    margin:0 auto 2.5rem;
+    text-align:center;
+    color:#667085;
+}
+
+.council-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:2rem;
+}
+
+.member-card{
+    background:#fff;
+    border:1px solid #e5e7eb;
+    border-radius:14px;
+    padding:1.5rem;
+
+    text-align:center;
+
+    transition:.25s;
+}
+
+.member-card:hover{
+    transform:translateY(-5px);
+
+    box-shadow:0 12px 28px rgba(0,0,0,.08);
+}
+
+.member-photo{
+
+    width:170px;
+    height:170px;
+
+    object-fit:cover;
+    object-position:top;
+
+    border-radius:12px;
+
+    margin:0 auto 1rem;
+
+    display:block;
+}
+
+.member-card h3{
+
+    color:#0b3d2e;
+
+    font-size:1rem;
+
+    margin-bottom:.45rem;
+
+    min-height:48px;
+}
+
+.member-role{
+
+    font-weight:700;
+
+    color:#344054;
+
+    margin-bottom:.45rem;
+}
+
+.member-secondary{
+
+    color:#667085;
+
+    font-size:.9rem;
+
+    margin-bottom:.6rem;
+}
+
+.member-office{
+
+    color:#667085;
+
+    line-height:1.5;
+
+    font-size:.9rem;
+}
+
+.section-title-caption {
+  display: block;
+  text-align: center;
+  margin-top: -0.8rem;
+  margin-bottom: 1.3rem;
+
+  color: #667085;
+  font-size: 0.95rem;
+  font-style: italic;
 }

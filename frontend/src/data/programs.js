@@ -242,7 +242,7 @@ const programs = [
   {
     id: 4,
 
-    slug: "Town-Hall-HCD-& Data-Advocacy-Across-13",
+    slug: "Town-Hall-hcd-data-Advocacy-Across-13",
 
     title:
       "Town Hall HCD & Data Advocacy Across 13 LGA of Nasarawa State",
@@ -426,7 +426,7 @@ const programs = [
     slug: "launch-of-document-accelerating-growth-and-development",
 
     title:
-      "Nasarawa State Human Capital Development Strategy Document launch",
+      "Launch of both the Nasarawa State Human Capital Development Strategy Document: Accelerating Growth and Development (2024 - 2030) and Nasarawa State Gender Transformative Human Capital Development Policy Framework",
 
     thematicAreas: [  "Youth",  "Labour Force",  "Social Development", "Education", "Health & Nutrition"],
 
@@ -434,7 +434,7 @@ const programs = [
 
     year: "2023",
 
-    image: "/images/programs/data1.jpg",
+    image: "/images/programs/doc-launch/1.jpg",
 
     oneLineSummary:
       "A landmark policy launch introducing a 2024–2030 strategic roadmap and a gender-transformative framework to guide inclusive human capital development in Nasarawa State",
@@ -485,10 +485,16 @@ const programs = [
    impactSummary:
       "The launch establishes a clear and structured direction for human capital development in Nasarawa State, ensuring that growth is not only accelerated but also inclusive, equitable, and sustainable over the 2024–2030 period.",
     gallery: [
-      "/images/programs/data2.jpg",
-      "/images/programs/data3.jpg",
-      "/images/programsdata4.jpg",
-      "/images/programs/data5.jpg",
+      "/images/programs/doc-launch/2.jpg",
+      "/images/programs/doc-launch/3.jpg",
+      "/images/programs/doc-launch/4.jpg",
+      "/images/programs/doc-launch/5.jpg",
+      "/images/programs/doc-launch/6.jpg",
+      "/images/programs/doc-launch/7.jpg",
+      "/images/programs/doc-launch/8.jpg",
+      "/images/programs/doc-launch/9.jpg",
+      "/images/programs/doc-launch/10.jpg",
+      "/images/programs/doc-launch/11.jpg",
       
     ],
   },
@@ -498,7 +504,7 @@ const programs = [
     slug: "lifting-one-million-women-out-of-poverty",
 
     title:
-      "Lifting one million women out of poverty",
+      "Lifting one million women out of poverty - Leadership Training for 100 Women in Entrepreneurship, ICT business, Leather works, Tie/dye & Batik, Animal Feeds Production and Modern Honey Production",
 
     thematicAreas: [  "Youth",  "Labour Force",  "Social Development",],
 
@@ -506,7 +512,7 @@ const programs = [
 
     year: "2023",
 
-    image: "/images/programs/data1.jpg",
+    image: "/images/programs/women-training/1.jpg",
 
     oneLineSummary:
       "A women empowerment programme implemented in partnership with Leadership Newspapers, equipping 100 women with entrepreneurial and vocational skills for sustainable income generation and poverty reduction in Nasarawa State.",
@@ -567,10 +573,15 @@ const programs = [
    impactSummary:
       "The partnership with Leadership Newspapers strengthens the visibility, reach, and impact of the programme, ensuring that women are not only trained but also supported to become active economic contributors and business owners.",
     gallery: [
-      "/images/programs/data2.jpg",
-      "/images/programs/data3.jpg",
-      "/images/programsdata4.jpg",
-      "/images/programs/data5.jpg",
+        "/images/programs/women-training/4.jpg",
+      "/images/programs/women-training/5.jpg",
+      "/images/programs/women-training/7.jpg",
+      "/images/programs/women-training/9.jpg",
+      "/images/programs/women-training/10.jpg",
+      "/images/programs/women-training/11.jpg",
+      "/images/programs/women-training/12.jpg",
+      "/images/programs/women-training/13.jpg",
+      
       
     ],
   },
@@ -588,7 +599,7 @@ const programs = [
 
     year: "2022",
 
-    image: "/images/programs/data1.jpg",
+    image: "/images/programs/nelfund/1.jpg",
 
     oneLineSummary:
       "A statewide sensitization and mobilization initiative designed to increase student participation in the NELFUND education loan scheme across Nasarawa State’s three senatorial zones.",
@@ -651,17 +662,21 @@ const programs = [
    impactSummary:
       "The NELFUND Awareness Workshops (Access the 3 Zones) serve as a critical bridge between students and education financing opportunities, ensuring that no eligible student in Nasarawa State is left behind due to lack of information or access.",
     gallery: [
-      "/images/programs/data2.jpg",
-      "/images/programs/data3.jpg",
-      "/images/programsdata4.jpg",
-      "/images/programs/data5.jpg",
+     "/images/programs/nelfund/2.jpg",
+     "/images/programs/nelfund/3.jpg",
+     "/images/programs/nelfund/4.jpg",
+     "/images/programs/nelfund/5.jpg",
+     "/images/programs/nelfund/6.jpg",
+     "/images/programs/nelfund/7.jpg",
+     "/images/programs/nelfund/8.jpg",
+     "/images/programs/nelfund/9.jpg",
       
     ],
   },
   {
     id: 9,
 
-    slug: "training-of-50-technicians-for lng/cng-conversion",
+    slug: "training-of-50-technicians-for_lng_cng-conversion",
 
     title:
       "Training of 50 technicians for LNG/CNG Conversion",
@@ -672,7 +687,7 @@ const programs = [
 
     year: "2023",
 
-    image: "/images/programs/data1.jpg",
+    image: "/images/programs/cng-training/1.jpg",
 
     oneLineSummary:
       "A specialized technical training program that developed 50 certified technicians in LNG/CNG vehicle conversion, advancing clean energy adoption and youth employment in Nasarawa State.",
@@ -731,10 +746,15 @@ const programs = [
    impactSummary:
       "The initiative represents a strategic shift toward equipping young people with future-ready technical skills, positioning Nasarawa State to benefit from the growing alternative energy and automotive innovation sector.",
     gallery: [
-      "/images/programs/data2.jpg",
-      "/images/programs/data3.jpg",
-      "/images/programsdata4.jpg",
-      "/images/programs/data5.jpg",
+       "/images/programs/cng-training/2.jpg",
+       "/images/programs/cng-training/3.jpg",
+       "/images/programs/cng-training/4.jpg",
+       "/images/programs/cng-training/5.jpg",
+       "/images/programs/cng-training/6.jpg",
+       "/images/programs/cng-training/7.jpg",
+       "/images/programs/cng-training/8.jpg",
+       "/images/programs/cng-training/9.jpg",
+       "/images/programs/cng-training/10.jpg",
       
     ],
   },
@@ -752,7 +772,7 @@ const programs = [
 
     year: "2025",
 
-    image: "/images/programs/data1.jpg",
+    image: "/images/programs/doma_fishery/1.jpg",
 
     oneLineSummary:
       "A community-driven aquaculture and fishing initiative leveraging Doma Dam to create jobs, improve livelihoods, and strengthen food security in Nasarawa State.",
@@ -813,17 +833,27 @@ const programs = [
    impactSummary:
       "A community-driven aquaculture and fishing initiative leveraging Doma Dam to create jobs, improve livelihoods, and strengthen food security in Nasarawa State.",
     gallery: [
-      "/images/programs/data2.jpg",
-      "/images/programs/data3.jpg",
-      "/images/programsdata4.jpg",
-      "/images/programs/data5.jpg",
+     "/images/programs/doma_fishery/2.jpg",
+     "/images/programs/doma_fishery/3.jpg",
+     "/images/programs/doma_fishery/4.jpg",
+     "/images/programs/doma_fishery/5.jpg",
+     "/images/programs/doma_fishery/6.jpg",
+     "/images/programs/doma_fishery/7.jpg",
+     "/images/programs/doma_fishery/8.jpg",
+     "/images/programs/doma_fishery/9.jpg",
+     "/images/programs/doma_fishery/10.jpg",
+     "/images/programs/doma_fishery/11.jpg",
+     "/images/programs/doma_fishery/12.jpg",
+     "/images/programs/doma_fishery/13.jpg",
+     "/images/programs/doma_fishery/14.jpg",
+     "/images/programs/doma_fishery/15.jpg",
       
     ],
   },
   {
     id: 11,
 
-    slug: "empowerHer",
+    slug: "empowerher",
 
     title:
       "EmpowerHer” (Tallafamata) Phase I - Financial Literacy & Economic Inclusion outreach for women in Nasarawa State ",
@@ -834,7 +864,7 @@ const programs = [
 
     year: "2024",
 
-    image: "/images/programs/data1.jpg",
+    image: "/images/programs/empowerher/11.jpg",
 
     oneLineSummary:
       "A grassroots financial literacy and economic inclusion program empowering women in Nasarawa State with the knowledge and tools to achieve financial independence and sustainable livelihoods.",
@@ -901,10 +931,16 @@ const programs = [
    impactSummary:
       "EmpowerHer (Tallafamata) Phase I is a foundational step toward building economically empowered women who are financially literate, self-reliant, and actively contributing to the socio-economic development of Nasarawa State.",
     gallery: [
-      "/images/programs/data2.jpg",
-      "/images/programs/data3.jpg",
-      "/images/programsdata4.jpg",
-      "/images/programs/data5.jpg",
+  
+      "/images/programs/empowerher/1.jpg",
+      "/images/programs/empowerher/2.jpg",
+      "/images/programs/empowerher/3.jpg",
+      "/images/programs/empowerher/4.jpg",
+      "/images/programs/empowerher/5.jpg",
+      "/images/programs/empowerher/6.jpg",
+      "/images/programs/empowerher/7.jpg",
+      "/images/programs/empowerher/9.jpg",
+      "/images/programs/empowerher/10.jpg",
       
     ],
   },

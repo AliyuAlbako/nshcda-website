@@ -4,7 +4,7 @@ const thematicAreas = [
     slug: "health-nutrition",
     title: "Health & Nutrition",
     description:
-      "Improving health service delivery, strengthening healthcare systems, operationalizing the Food and Nutrition policy and BHCPF, and expanding access to family planning and healthcare infrastructure.",
+      "Improving health service delivery, strengthening healthcare systems, operationalizing the Food and Nutrition policy, Basic Health Care Provision Fund (BHCPF) and expanding access to family planning and healthcare infrastructure.",
   },
 
   {

@@ -18,7 +18,7 @@ function Programs() {
               NSHCDA implements strategic human capital
               development programmes across education,
               health, youth empowerment, workforce
-              development and social inclusion.
+              development, community development and social inclusion.
             </p>
           </div>
 

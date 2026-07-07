@@ -57,7 +57,7 @@ const newsHighlights = [
     id: 3,
     slug: "yrfs-cheque-presentation-keffi",
 
-    category: "news",
+    category: "highlight",
 
     featured: false,
 
@@ -80,9 +80,36 @@ const newsHighlights = [
     fullDescription:
       "The Nasarawa State Government, through NSHCDA, presented a symbolic cheque of ₦50 million to the Keffi Emirate Cooperative Society under the Youth Revolving Fund Scheme to support youth-led enterprises and cooperative groups."
   },
-
   {
     id: 4,
+    slug: "yrfs-akwanga-disbursement",
+
+    category: "highlight",
+
+    featured: true,
+
+    title:
+      "YRFS Cheque Presentation to Akwanga Cooperative Societies",
+
+    date: "April 2026",
+
+    location: "Akwanga, Nasarawa State",
+
+    type: "image",
+
+    thumbnail: "/images/gallery/kf1.jpeg",
+
+    mediaUrl: "/images/gallery/kf1.jpeg",
+
+    description:
+      "Symbolic cheque presentation under the Youth Revolving Fund Scheme in Akwanga.",
+
+    fullDescription:
+      "The Nasarawa State Government, through NSHCDA, presented a symbolic cheque of ₦50 million to the Akwanga Societies under the Youth Revolving Fund Scheme to support youth-led enterprises and cooperative groups."
+  },
+
+  {
+    id: 5,
     slug: "community-development-outreach",
 
     category: "highlight",
@@ -111,7 +138,7 @@ const newsHighlights = [
   },
 
   {
-    id: 5,
+    id: 6,
     slug: "nshcda-stakeholder-engagement-meeting",
 
     category: "news",

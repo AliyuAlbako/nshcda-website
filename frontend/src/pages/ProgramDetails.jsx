@@ -5,6 +5,8 @@ import ProgramCard from "../components/programs/ProgramCard";
 
 function ProgramDetails() {
   const { slug } = useParams();
+    console.log("URL slug:", slug);
+    console.log("Available program slugs:", programs.map(p => p.slug));
 
   const program = programs.find(
     (item) => item.slug === slug

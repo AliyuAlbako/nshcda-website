@@ -25,7 +25,7 @@ function PartnersStrip() {
                 loading="lazy"
               />
 
-              <span>{partner.name}</span>
+              {/* <span>{partner.name}</span> */}
             </div>
           ))}
         </div>
