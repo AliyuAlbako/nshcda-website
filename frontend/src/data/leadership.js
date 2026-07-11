@@ -104,7 +104,7 @@ const leadership = {
     institution:
       "Nasarawa State Ministry of Finance, Budget and Economic Planning",
     category: "Ministry",
-    image: "/images/leadership/placeholder.jpg",
+    image: "/images/leadership/finance.jpg",
     logo: "/images/ministries/nas_logo.png",
   },
 
@@ -115,7 +115,7 @@ const leadership = {
     institution:
       "Nasarawa State Ministry of Women Affairs & Social Development",
     category: "Ministry",
-    image: "/images/leadership/placeholder.jpg",
+    image: "/images/leadership/women.jpg",
     logo: "/images/ministries/nas_logo.png",
   },
    {
@@ -125,7 +125,7 @@ const leadership = {
     institution:
       "Nasarawa State Ministry of Information, Culture & Tourism",
     category: "Ministry",
-    image: "/images/leadership/placeholder.jpg",
+    image: "/images/leadership/culture.jpg",
     logo: "/images/ministries/nas_logo.png",
   },
 
@@ -138,7 +138,7 @@ const leadership = {
     institution:
       "Nasarawa State Primary Healthcare Development Agency (NAPHDA)",
     category: "Agency",
-    image: "/images/leadership/placeholder.jpg",
+    image: "/images/leadership/naphda.jpg",
     logo: "/images/ministries/nas_logo.png",
   },
 
@@ -148,7 +148,7 @@ const leadership = {
     designation: "Executive Secretary",
     institution: "Nasarawa State Health Insurance Agency",
     category: "Agency",
-    image: "/images/leadership/placeholder.jpg",
+    image: "/images/leadership/healthinsure.jpg",
     logo: "/images/ministries/nas_logo.png",
   },
 
@@ -158,7 +158,7 @@ const leadership = {
     designation: "Executive Chairman",
     institution: "Nasarawa State Universal Basic Education Board",
     category: "Agency",
-    image: "/images/leadership/placeholder.jpg",
+    image: "/images/leadership/subeb.jpg",
     logo: "/images/ministries/nas_logo.png",
   },
 
@@ -170,7 +170,7 @@ const leadership = {
     institution:
       "Christian Association of Nigeria (CAN), Nasarawa State Chapter",
     category: "Religious Institution",
-    image: "/images/leadership/placeholder.jpg",
+    image: "/images/leadership/can2.jpg",
     logo: "/images/ministries/nas_logo.png",
   },
 
@@ -180,7 +180,7 @@ const leadership = {
     designation: "State Chairman",
     institution: "Jama'atu Nasril Islam (JNI)",
     category: "Religious Institution",
-    image: "/images/leadership/jni.jpg",
+    image: "/images/leadership/jni2.jpg",
     logo: "/images/ministries/nas_logo.png",
   },
 
@@ -190,7 +190,7 @@ const leadership = {
     designation: "Executive Chairman",
     institution: "Nasarawa State Disability Rights Commission",
     category: "Agency",
-    image: "/images/leadership/placeholder.jpg",
+    image: "/images/leadership/barde.jpg",
     logo: "/images/ministries/nas_logo.png",
   },
 
