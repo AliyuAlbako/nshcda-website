@@ -8,8 +8,9 @@ const testimonials = [
     id: 2,
     program:
       "Launch of the Nasarawa State Human Capital Development Strategy (2024–2030) and Gender Transformative Human Capital Development Policy Framework",
-    videoId: "AbCdEfGhIjK",
+    videoId: "fftC7uLeP4M",
   },
 ];
 
 export default testimonials;
+

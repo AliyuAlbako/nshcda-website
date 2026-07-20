@@ -25,3 +25,6 @@ dist-ssr
 *.env
 .env
 *.mp4
+# Videos
+frontend/public/videos/
+*.mp4
