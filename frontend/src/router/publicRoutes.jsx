@@ -9,6 +9,7 @@ import About from "../pages/About";
 import Programs from "../pages/Programs";
 import ProgramDetails from "../pages/ProgramDetails";
 import Opportunities from "../pages/Opportunities";
+import RegisterEmploymentProfile from "../pages/RegisterEmploymentProfile";
 import OpportunityDetails from "../pages/OpportunityDetails";
 import OpportunityApply from "../pages/OpportunityApply";
 import Leadership from "../pages/Leadership";
@@ -39,6 +40,7 @@ function PublicRoutes() {
       <Route path="dashboard" element={<Dashboard />}/>
 
       <Route path="opportunities" element={<Opportunities />} />
+      <Route path="/opportunities/register" element={<RegisterEmploymentProfile />}/>
       <Route path="opportunities/:id" element={<OpportunityDetails />} />
       <Route path="marketplace" element={<Marketplace />} />
       <Route

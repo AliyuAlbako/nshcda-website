@@ -6,7 +6,7 @@ const heroSlides = [
 
     mainCaption: "Youth Revolving Fund Scheme (YRFS), Akwanga",
     small1Caption: "Youth Development",
-    small2Caption: "Interest-free Loan",
+    small2Caption: "Youth Revolving Fund Scheme (YRFS)",
 
     contentType: "news",
 
@@ -50,7 +50,7 @@ const heroSlides = [
       "YRFS Cheque Presentation, Keffi",
 
     small1Caption: "Youth Development",
-    small2Caption: "Interest-free Loan",
+    small2Caption: "Youth Revolving Fund Scheme (YRFS)",
 
     contentType: "news",
 

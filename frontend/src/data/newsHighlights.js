@@ -15,15 +15,16 @@ const newsHighlights = [
 
     type: "video",
 
-    thumbnail: "/images/gallery/ak1.jpeg",
+    // thumbnail: "/images/gallery/ak1.jpeg",
+    thumbnail: "/images/programs/doc-launch/3.jpg",
 
     mediaUrl:"https://www.youtube.com/embed/02XepV3fm9Q",
 
     description:
-      "NSHCDA facilitates the disbursement of ₦50 million to cooperative societies in Akwanga under the Youth Revolving Fund Scheme.",
+      "A landmark policy launch introducing a 2024–2030 strategic roadmap and a gender-transformative framework to guide inclusive human capital development in Nasarawa State",
 
     fullDescription:
-      "Beneficiaries include Nasara Women, Women for Change Fattening Farmers, Anjida Community, Nagari Women Group, and Bada Koshi cooperatives. The initiative aims to boost grassroots economic growth, promote financial inclusion, and support women-led and community-based enterprises."
+      "Launch of both the Nasarawa State Human Capital Development Strategy Document: Accelerating Growth and Development (2024 - 2030) and Nasarawa State Gender Transformative Human Capital Development Policy Framework"
   },
 
   {
@@ -108,66 +109,66 @@ const newsHighlights = [
       "The Nasarawa State Government, through NSHCDA, presented a symbolic cheque of ₦50 million to the Akwanga Societies under the Youth Revolving Fund Scheme to support youth-led enterprises and cooperative groups."
   },
 
-  {
-    id: 5,
-    slug: "community-development-outreach",
+  // {
+  //   id: 5,
+  //   slug: "community-development-outreach",
 
-    category: "highlight",
+  //   category: "highlight",
 
-    featured: false,
+  //   featured: false,
 
-    title: "Community Development Outreach",
+  //   title: "Community Development Outreach",
 
-    date: "August 2024",
+  //   date: "August 2024",
 
-    location: "Doma, Nasarawa State",
+  //   location: "Doma, Nasarawa State",
 
-    type: "image",
+  //   type: "image",
 
-    thumbnail:
-      "/images/gallery/community-outreach.jpg",
+  //   thumbnail:
+  //     "/images/gallery/community-outreach.jpg",
 
-    mediaUrl:
-      "/images/gallery/community-outreach.jpg",
+  //   mediaUrl:
+  //     "/images/gallery/community-outreach.jpg",
 
-    description:
-      "Community outreach focused on local development priorities and grassroots engagement.",
+  //   description:
+  //     "Community outreach focused on local development priorities and grassroots engagement.",
 
-    fullDescription:
-      "The outreach engaged community leaders and residents in identifying development priorities, strengthening participation, and supporting local intervention planning."
-  },
+  //   fullDescription:
+  //     "The outreach engaged community leaders and residents in identifying development priorities, strengthening participation, and supporting local intervention planning."
+  // },
 
-  {
-    id: 6,
-    slug: "nshcda-stakeholder-engagement-meeting",
+  // {
+  //   id: 6,
+  //   slug: "nshcda-stakeholder-engagement-meeting",
 
-    category: "news",
+  //   category: "news",
 
-    featured: false,
+  //   featured: false,
 
-    title:
-      "NSHCDA Stakeholder Engagement Meeting",
+  //   title:
+  //     "NSHCDA Stakeholder Engagement Meeting",
 
-    date: "May 2026",
+  //   date: "May 2026",
 
-    location: "Lafia, Nasarawa State",
+  //   location: "Lafia, Nasarawa State",
 
-    type: "video",
+  //   type: "video",
 
-    thumbnail:
-      "/images/gallery/stakeholder-meeting.jpg",
+  //   thumbnail:
+  //     "/images/gallery/stakeholder-meeting.jpg",
 
-    mediaUrl:
-      "https://www.youtube.com/embed/VIDEO_ID",
+  //   mediaUrl:
+  //     "https://www.youtube.com/embed/VIDEO_ID",
       
       
 
-    description:
-      "Stakeholders gathered to discuss collaborative approaches for accelerating human capital development in Nasarawa State.",
+  //   description:
+  //     "Stakeholders gathered to discuss collaborative approaches for accelerating human capital development in Nasarawa State.",
 
-    fullDescription:
-      "The meeting brought together government institutions, development partners, traditional leaders and civil society organizations to review progress and strengthen collaboration toward achieving Human Capital Development objectives."
-  }
+  //   fullDescription:
+  //     "The meeting brought together government institutions, development partners, traditional leaders and civil society organizations to review progress and strengthen collaboration toward achieving Human Capital Development objectives."
+  // }
 ];
 
 export default newsHighlights;

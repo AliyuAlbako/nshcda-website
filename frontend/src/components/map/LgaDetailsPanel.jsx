@@ -1,40 +1,91 @@
-function LgaDetailsPanel({ selectedLga, lgaData }) {
+
+import estimatedBeneficiaries from "../../data/estimatedBeneficiaries";
+function LgaDetailsPanel({ selectedLga }) {
   if (!selectedLga) {
     return (
       <div className="card lga-panel">
-        <h2>Select an LGA</h2>
-        <p>Click an LGA from the map area to view programs and impact details.</p>
+        <h2>Human Capital Development Coverage</h2>
+
+        <p>
+          Select any Local Government Area on the map to view its
+          intervention coverage.
+        </p>
+
+        <div className="coverage-status success">
+          ✓ Statewide Coverage
+        </div>
+
+        <p>
+          NSHCDA has implemented Human Capital Development
+          interventions across all thirteen (13) Local Government
+          Areas of Nasarawa State.
+        </p>
+
+        <p>
+          This interactive map provides a geographic overview of
+          intervention coverage. As the NSHCDA Digital Platform
+          evolves, programme records, beneficiary statistics and
+          implementation reports will become available for each
+          Local Government Area.
+        </p>
       </div>
     );
   }
 
-  const totalPrograms = lgaData.length;
-  const totalBeneficiaries = lgaData.reduce(
-    (sum, item) => sum + item.beneficiaries,
-    0
-  );
-
-  const thematicAreas = [...new Set(lgaData.map((item) => item.thematicArea))];
+  const beneficiaries =
+    estimatedBeneficiaries[selectedLga] || "N/A";
 
   return (
     <div className="card lga-panel">
-      <h2>{selectedLga}</h2>
-      <p><strong>Programs:</strong> {totalPrograms}</p>
-      <p><strong>Beneficiaries Reached:</strong> {totalBeneficiaries}</p>
-      <p><strong>Thematic Areas:</strong> {thematicAreas.join(", ")}</p>
+      <h2>{selectedLga.toUpperCase()} LOCAL GOVERNMENT AREA</h2>
 
-      <div className="lga-program-list">
-        <h3>Programs in this LGA</h3>
-        {lgaData.map((item) => (
-          <div key={item.id} className="lga-program-item">
-            <h4>{item.programTitle}</h4>
-            <p><strong>Thematic Area:</strong> {item.thematicArea}</p>
-            <p><strong>Status:</strong> {item.status}</p>
-            <p><strong>Beneficiaries:</strong> {item.beneficiaries}</p>
-            <p>{item.description}</p>
-          </div>
-        ))}
+      <div className="coverage-status success">
+        ✓ Intervention Implemented
       </div>
+
+      {/* Estimated Beneficiaries */}
+      <div className="lga-beneficiaries-card">
+        <h3>
+          {typeof beneficiaries === "number"
+            ? beneficiaries.toLocaleString()
+            : beneficiaries}+
+        </h3>
+
+        <span>Citizens Impacted</span>
+      </div>
+
+      <p>
+        NSHCDA has implemented Human Capital Development
+        interventions within this Local Government Area as part of
+        its statewide commitment to improving health, education,
+        youth empowerment, labour force development and social
+        development.
+      </p>
+
+      <p>
+        Based on the Agency's current statewide impact, this Local
+        Government Area is estimated to have reached approximately{" "}
+        <strong>
+          {typeof beneficiaries === "number"
+            ? beneficiaries.toLocaleString()
+            : beneficiaries}
+        </strong>{" "}
+        beneficiaries through various Human Capital Development
+        interventions.
+      </p>
+
+      {/* <small
+        style={{
+          display: "block",
+          marginTop: "1rem",
+          color: "#667085",
+          fontStyle: "italic",
+        }}
+      >
+        * Beneficiary figures shown are presentation estimates and
+        will be replaced with official NSHCDA records as they become
+        available.
+      </small> */}
     </div>
   );
 }

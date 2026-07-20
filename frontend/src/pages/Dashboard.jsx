@@ -81,7 +81,7 @@ function Dashboard() {
                 <div className="coverage-stats">
                   <span>13 LGAs Reached</span>
                   <span>50+ Programs</span>
-                  <span>15,000+ Beneficiaries</span>
+                  <span>20,000+ Beneficiaries</span>
                 </div>
 
                 <Link
@@ -96,73 +96,46 @@ function Dashboard() {
         </section>
 
         {/* Beneficiary Success Stories */}
+{/* Success Stories */}
 <section className="dashboard-section">
-  <h2>Beneficiary Success Stories</h2>
+
+  <h2>Success Stories</h2>
 
   <p className="dashboard-section-intro">
-    Real stories from beneficiaries whose lives have been transformed through
-    NSHCDA interventions across Nasarawa State.
+    Watch short videos showcasing the impact of NSHCDA programmes
+    across Nasarawa State.
   </p>
 
-  {/* Featured Story */}
-  <div className="featured-testimonial">
-    <div
-      className="featured-testimonial-video"
-      onClick={() => setActiveVideo(featuredTestimonial)}
-    >
-      <img
-        src={featuredTestimonial.thumbnail}
-        alt={featuredTestimonial.name}
-      />
+  <div className="testimonial-video-grid">
 
-      <div className="featured-play-btn">
-        ▶
-      </div>
-    </div>
+    {testimonials.map((testimonial) => (
 
-    <div className="featured-testimonial-content">
-      <span className="featured-tag">
-        Featured Success Story
-      </span>
-
-      <h3>{featuredTestimonial.name}</h3>
-
-      <p className="featured-program">
-        {featuredTestimonial.program}
-      </p>
-
-      <p className="featured-lga">
-        {featuredTestimonial.lga}
-      </p>
-
-      <blockquote>
-        "{featuredTestimonial.quote}"
-      </blockquote>
-
-      <button
-        type="button"
-        className="btn"
-        onClick={() =>
-          setActiveVideo(featuredTestimonial)
-        }
+      <div
+        key={testimonial.id}
+        className="testimonial-video-card"
       >
-        Watch Full Testimony
-      </button>
-    </div>
+
+        <div className="video-wrapper">
+
+          <iframe
+            src={`https://www.youtube.com/embed/${testimonial.videoId}`}
+            title={testimonial.program}
+            loading="lazy"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          />
+
+        </div>
+
+        <h3>{testimonial.program}</h3>
+
+      </div>
+
+    ))}
+
   </div>
 
-  {/* Other Success Stories */}
-  <div className="testimonial-grid">
-    {testimonials
-      .slice(1)
-      .map((testimonial) => (
-        <TestimonialCard
-          key={testimonial.id}
-          testimonial={testimonial}
-          onPlay={setActiveVideo}
-        />
-      ))}
-  </div>
 </section>
         {/* Footer CTA */}
         <div className="dashboard-actions">

@@ -531,3 +531,56 @@
   min-width: 220px;
   text-align: center;
 }
+
+
+/* ==========================================
+   SUCCESS STORIES
+========================================== */
+
+.testimonial-video-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(380px,1fr));
+
+    gap:2rem;
+
+    margin-top:2rem;
+
+}
+
+.testimonial-video-card{
+
+    background:#fff;
+
+    border:1px solid #e5e7eb;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.06);
+
+}
+
+.testimonial-video-card video{
+
+    width:100%;
+
+    display:block;
+
+    background:#000;
+
+}
+
+.testimonial-video-card h3{
+
+    padding:1rem;
+
+    text-align:center;
+
+    color:#0b3d2e;
+
+    font-size:1.05rem;
+
+}

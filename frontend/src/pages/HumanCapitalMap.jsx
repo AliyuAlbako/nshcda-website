@@ -1,93 +1,89 @@
-import { useMemo, useState, useEffect } from "react";
+import { useState } from "react";
+
 import lgaPrograms from "../data/lgaPrograms";
+
 import MapStats from "../components/map/MapStats";
-import MapFilters from "../components/map/MapFilters";
-import NasarawaMapPlaceholder from "../components/map/NasarawaMapPlaceholder";
 import LgaDetailsPanel from "../components/map/LgaDetailsPanel";
 import NasarawaLeafletMap from "../components/map/NasarawaLeafletMap";
 
 function HumanCapitalMap() {
-  const [thematicArea, setThematicArea] = useState("");
-  const [status, setStatus] = useState("");
-  const [year, setYear] = useState("");
   const [selectedLga, setSelectedLga] = useState("");
 
-  const thematicAreas = [...new Set(lgaPrograms.map((item) => item.thematicArea))];
-  const years = [...new Set(lgaPrograms.map((item) => item.year))];
-
-  const filteredData = useMemo(() => {
-    return lgaPrograms.filter((item) => {
-      const matchesThematic = thematicArea ? item.thematicArea === thematicArea : true;
-      const matchesStatus = status ? item.status === status : true;
-      const matchesYear = year ? String(item.year) === String(year) : true;
-
-      return matchesThematic && matchesStatus && matchesYear;
-    });
-  }, [thematicArea, status, year]);
-
-  const lgas = [...new Set(filteredData.map((item) => item.lga))].sort();
-
-  const lgaCounts = filteredData.reduce((acc, item) => {
+  // Count how many recorded interventions exist per LGA
+  const lgaCounts = lgaPrograms.reduce((acc, item) => {
     acc[item.lga] = (acc[item.lga] || 0) + 1;
     return acc;
   }, {});
 
-  const stats = {
-    totalLgas: lgas.length,
-    totalPrograms: filteredData.length,
-    totalBeneficiaries: filteredData.reduce(
-      (sum, item) => sum + item.beneficiaries,
-      0
-    ),
-    activePrograms: filteredData.filter((item) => item.status === "Ongoing").length,
-  };
-
-  useEffect(() => {
-    if (selectedLga && !lgas.includes(selectedLga)) {
-      setSelectedLga("");
-    }
-  }, [filteredData, lgas, selectedLga]);
-
-  const selectedLgaData = filteredData.filter((item) => item.lga === selectedLga);
+  const selectedLgaData = lgaPrograms.filter(
+    (item) => item.lga === selectedLga
+  );
 
   return (
     <section className="page-section container">
-      <div className="map-page-header">
-        <h1>Human Capital Map Dashboard</h1>
+
+      {/* Hero */}
+      <div className="map-hero">
+
+        <span className="map-hero-badge">
+          Interactive Decision Support Tool
+        </span>
+
+        <h1>Human Capital Development Map</h1>
+
         <p>
-          Track NSHCDA interventions across Nasarawa State by LGA, thematic area,
-          status, and year.
+          Explore the geographic distribution of NSHCDA
+          programmes, interventions and human capital
+          development initiatives implemented across the
+          13 Local Government Areas of Nasarawa State.
         </p>
+
       </div>
 
-      <MapStats stats={stats} />
+      {/* Platform Overview */}
+      <MapStats />
 
-      <div style={{ marginTop: "2rem" }}>
-        <MapFilters
-          thematicArea={thematicArea}
-          setThematicArea={setThematicArea}
-          status={status}
-          setStatus={setStatus}
-          year={year}
-          setYear={setYear}
-          thematicAreas={thematicAreas}
-          years={years}
-        />
-      </div>
-
+      {/* Interactive Map */}
       <div className="map-layout">
+
         <NasarawaLeafletMap
-        selectedLga={selectedLga}
-        setSelectedLga={setSelectedLga}
-        lgaCounts={lgaCounts}
-        filteredData={filteredData}
+          selectedLga={selectedLga}
+          setSelectedLga={setSelectedLga}
+          lgaCounts={lgaCounts}
+          programData={lgaPrograms}
         />
 
         <LgaDetailsPanel
           selectedLga={selectedLga}
           lgaData={selectedLgaData}
         />
+
       </div>
+
+      {/* About the Map */}
+      <div className="card map-about">
+
+        <h2>About the Human Capital Development Map</h2>
+
+        <p>
+          The Human Capital Development Map provides a
+          geographic overview of NSHCDA programmes and
+          interventions implemented across Nasarawa State.
+          It demonstrates the Agency's commitment to
+          inclusive development across the thirteen Local
+          Government Areas.
+        </p>
+
+        <p>
+          As the NSHCDA Digital Platform evolves,
+          additional programme records, beneficiary
+          statistics and implementation reports will be
+          integrated to provide richer analytics and
+          decision-support capabilities.
+        </p>
+
+      </div>
+
     </section>
   );
 }

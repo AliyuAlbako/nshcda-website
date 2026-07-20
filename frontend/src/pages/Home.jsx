@@ -89,7 +89,7 @@ const latestNews = newsHighlights
         <div className="container">
           <SectionTitle
             title="Advancing Human Capital Development in Nasarawa State"
-            subtitle="Strengthening health, education, youth empowerment, social development, workforce productivity, and community development to improve the quality of life for citizens across Nasarawa State."
+            subtitle="Strengthening Health & Nutrition, Education, Youth empowerment, social development, workforce productivity, and community development to improve the quality of life for citizens across Nasarawa State."
           />
           <div className="grid stat-grid">
             {stats.map((stat) => (

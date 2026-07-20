@@ -1,35 +1,87 @@
 import { Link } from "react-router-dom";
 
+import {
+  FaMapMarkerAlt,
+  FaCalendarAlt,
+  FaBuilding,
+  FaArrowRight,
+} from "react-icons/fa";
+
 function OpportunityCard({ item }) {
   return (
-    <div className="card opportunity-card">
-      <div className="opportunity-top">
+    <div className="opportunity-card">
+
+      {/* Header */}
+
+      <div className="opportunity-card-header">
+
         <span className={`status-badge ${item.status.toLowerCase()}`}>
           {item.status}
         </span>
-        <span className="category-badge">{item.category}</span>
+
+        <span className="category-badge">
+          {item.category}
+        </span>
+
       </div>
 
-      <div className="opportunity-meta-top">
-        <span className={`mode-badge ${item.applicationMode}`}>
-          {item.applicationMode === "internal"
-            ? "Internal Opportunity"
-            : "External Opportunity"}
-        </span>
-        <span className="source-badge">{item.source}</span>
-      </div>
+      {/* Title */}
 
       <h3>{item.title}</h3>
 
-      <p><strong>Thematic Area:</strong> {item.thematicArea}</p>
-      <p><strong>Location:</strong> {item.location}</p>
-      <p><strong>Deadline:</strong> {item.deadline}</p>
+      {/* Meta */}
 
-      <p className="opportunity-desc">{item.description}</p>
+      <div className="opportunity-meta">
 
-      <Link to={`/opportunities/${item.id}`} className="btn">
-        View Details
-      </Link>
+        <div>
+
+          <FaBuilding />
+
+          <span>{item.source}</span>
+
+        </div>
+
+        <div>
+
+          <FaMapMarkerAlt />
+
+          <span>{item.location}</span>
+
+        </div>
+
+        <div>
+
+          <FaCalendarAlt />
+
+          <span>{item.deadline}</span>
+
+        </div>
+
+      </div>
+
+      {/* Description */}
+
+      <p className="opportunity-desc">
+        {item.description}
+      </p>
+
+      {/* Footer */}
+
+      <div className="opportunity-footer">
+
+        <Link
+          to={`/opportunities/${item.id}`}
+          className="btn opportunity-btn"
+        >
+
+          View Details
+
+          <FaArrowRight />
+
+        </Link>
+
+      </div>
+
     </div>
   );
 }

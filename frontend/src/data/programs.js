@@ -856,13 +856,13 @@ const programs = [
     slug: "empowerher",
 
     title:
-      "EmpowerHer” (Tallafamata) Phase I - Financial Literacy & Economic Inclusion outreach for women in Nasarawa State ",
+      "EmpowerHer (Tallafamata) Phase I - Financial Literacy & Economic Inclusion outreach for women in Nasarawa State ",
 
     thematicAreas: [  "Youth",  "Labour Force", "Social Development"],
 
     category: "Labour Force",
 
-    year: "2024",
+    year: "2021",
 
     image: "/images/programs/empowerher/11.jpg",
 

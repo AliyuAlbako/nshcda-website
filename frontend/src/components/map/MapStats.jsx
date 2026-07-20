@@ -1,26 +1,61 @@
-function MapStats({ stats }) {
+function MapStats() {
   return (
-    <div className="grid stat-grid">
-      <div className="card stat-card">
-        <h3>{stats.totalLgas}</h3>
-        <p>LGAs Reached</p>
+    <section className="map-overview">
+
+      <div className="map-overview-header">
+        <h2>Platform Overview</h2>
+
+        <p>
+          Current representation of NSHCDA programmes and human capital
+          development interventions across Nasarawa State.
+        </p>
       </div>
 
-      <div className="card stat-card">
-        <h3>{stats.totalPrograms}</h3>
-        <p>Total Programs</p>
+      <div className="overview-grid">
+
+        <div className="overview-card">
+          <div className="overview-icon">🗺️</div>
+
+          <h3>13</h3>
+
+          <h4>LGAs Covered</h4>
+
+          <span>Across Nasarawa State</span>
+        </div>
+
+        <div className="overview-card">
+          <div className="overview-icon">📋</div>
+
+          <h3>50+</h3>
+
+          <h4>Recorded</h4>
+
+          <span>Programmes & Interventions</span>
+        </div>
+
+        <div className="overview-card">
+          <div className="overview-icon">👥</div>
+
+          <h3>20,000+</h3>
+
+          <h4>Beneficiaries Reached</h4>
+
+          <span>Demonstration Data</span>
+        </div>
+
+        <div className="overview-card">
+          <div className="overview-icon">🎯</div>
+
+          <h3>6</h3>
+
+          <h4>Strategic Themes</h4>
+
+          <span>Human Capital Areas</span>
+        </div>
+
       </div>
 
-      <div className="card stat-card">
-        <h3>{stats.totalBeneficiaries}</h3>
-        <p>Total Beneficiaries</p>
-      </div>
-
-      <div className="card stat-card">
-        <h3>{stats.activePrograms}</h3>
-        <p>Active Programs</p>
-      </div>
-    </div>
+    </section>
   );
 }
 

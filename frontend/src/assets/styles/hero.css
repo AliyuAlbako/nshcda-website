@@ -437,9 +437,9 @@
 
   padding: 12px 20px;
 
-  border: 2px solid #0b3d2e;
+  border: 2px solid #eceeed;
 
-  color: #0b3d2e;
+  color: #e6e7e7;
 
   text-decoration: none;
 
@@ -449,8 +449,8 @@
 }
 
 .btn-outline:hover {
-  background: #0b3d2e;
-  color: white;
+  background: #717574;
+  color: rgb(209, 194, 194);
 }
 
 @media (max-width: 768px) {

@@ -39,7 +39,7 @@ function Hero() {
 
       <div className="container hero-flex">
         <div className="hero-content">
-          <div className="hero-badge">Official NSHCDA Digital Platform</div>
+          {/* <div className="hero-badge">Official NSHCDA Digital Platform</div> */}
 
           <h1 style={{ lineHeight: "3rem", fontSize: "2.2rem" }}>
             Nasarawa State Human Capital Development Agency
