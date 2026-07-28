@@ -9,6 +9,7 @@ const opportunityRoutes = require("./routes/opportunityRoutes");
 const applicationRoutes = require("./routes/applicationRoutes");
 const dashboardRoutes = require("./routes/dashboardRoutes");
 const mediaRoutes = require("./routes/mediaRoutes");
+const employmentProfileRoutes = require("./routes/employmentProfileRoutes");
 
 const app = express();
 
@@ -21,9 +22,29 @@ app.use("/api/opportunities", opportunityRoutes);
 app.use("/api/applications", applicationRoutes);
 app.use("/api/dashboard", dashboardRoutes);
 app.use("/api/media", mediaRoutes);
+app.use("/api/employment-profiles", employmentProfileRoutes);
 
 app.get("/", (req, res) => {
   res.send("NSHCDA backend running");
 });
 
+
+
+// Handle Unknown Routes
+app.use((req, res) => {
+  res.status(404).json({
+    success: false,
+    message: "Route not found.",
+  });
+});
+
+// Global Error Handler
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+
+  res.status(err.status || 500).json({
+    success: false,
+    message: err.message || "Internal Server Error",
+  });
+});
 module.exports = app;

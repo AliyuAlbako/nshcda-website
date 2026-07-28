@@ -8,6 +8,7 @@ import EmploymentInformation from "./EmploymentInformation";
 import SkillsInformation from "./SkillsInformation";
 import ProfileNote from "./ProfileNote";
 import CVUpload from "./CVUpload";
+import { createEmploymentProfile } from "../../services/employmentProfileService";
 
 
 import ReviewScreen from "./ReviewScreen";
@@ -22,6 +23,7 @@ function EmploymentProfileForm({ registrationRef }) {
   const [formData, setFormData] = useState(initialFormData);
   const [currentStep, setCurrentStep] = useState("form");
   const [sectionToEdit, setSectionToEdit] = useState(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   
   const personalRef = useRef(null);
   const contactRef = useRef(null);
@@ -86,6 +88,52 @@ useEffect(() => {
       [name]: value,
     }));
   };
+
+//    const confirmed = window.confirm(
+//     "Are you sure you want to create your employment profile?"
+// );
+
+const handleSubmit = async () => {
+
+  if (isSubmitting) return;
+
+  setIsSubmitting(true);
+
+  try {
+
+    const data = new FormData();
+
+    Object.keys(formData).forEach((key) => {
+      if (key !== "cv") {
+        data.append(key, formData[key]);
+      }
+    });
+
+    if (formData.cv) {
+      data.append("cv", formData.cv);
+    }
+
+    await createEmploymentProfile(data);
+
+    setCurrentStep("success");
+
+  } catch (error) {
+
+    alert(
+      error.response?.data?.message ||
+      "Registration failed."
+    );
+
+  } finally {
+
+    setIsSubmitting(false);
+
+  }
+
+};
+
+
+  
 
   return (
     <>
@@ -153,13 +201,15 @@ useEffect(() => {
   <ReviewScreen
     formData={formData}
     onBack={() => setCurrentStep("form")}
-    onSubmit={() => setCurrentStep("success")}
-    onEditPersonal={() => goToSection(personalRef)}
-    onEditContact={() => goToSection(contactRef)}
-    onEditEducation={() => goToSection(educationRef)}
-    onEditEmployment={() => goToSection(employmentRef)}
-    onEditSkills={() => goToSection(skillsRef)}
-    onEditCV={() => goToSection(cvRef)}
+    onSubmit={handleSubmit}
+    onEditPersonal={() => goToSection("personal")}
+  onEditContact={() => goToSection("contact")}
+  onEditEducation={() => goToSection("education")}
+  onEditEmployment={() => goToSection("employment")}
+  onEditSkills={() => goToSection("skills")}
+  onEditCV={() => goToSection("cv")}
+  isSubmitting={isSubmitting}
+  
   />
 )}
 

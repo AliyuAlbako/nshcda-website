@@ -76,14 +76,14 @@ function RegistrationSuccess() {
           >
             Browse Opportunities
           </button>
-
+{/* 
           <button
             type="button"
             className="primary-success-btn"
           >
             Go to Dashboard
             <FaArrowRight />
-          </button>
+          </button> */}
 
         </div>
 

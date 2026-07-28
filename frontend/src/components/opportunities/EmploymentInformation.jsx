@@ -147,7 +147,7 @@ function EmploymentInformation({ formData, handleChange }) {
 
         </div>
 
-        <div className="form-group">
+        {/* <div className="form-group">
 
           <label>Available To Start</label>
 
@@ -165,7 +165,7 @@ function EmploymentInformation({ formData, handleChange }) {
 
           </select>
 
-        </div>
+        </div> */}
 
       </div>
 

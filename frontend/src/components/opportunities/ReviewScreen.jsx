@@ -21,6 +21,7 @@ function ReviewScreen({
   onEditEmployment,
   onEditSkills,
   onEditCV,
+  isSubmitting,
 }) {
     return (
 
@@ -76,16 +77,19 @@ function ReviewScreen({
         <div className="review-item">
             <span className="review-label">Date of Birth</span>
             <span className="review-value">
-                {formData.dateOfBirth || "Not Provided"}
+                {formData.dateOfBirth
+               ? new Date(formData.dateOfBirth)
+              .toLocaleDateString("en-GB")
+                : "Not Provided"}
             </span>
         </div>
 
-        <div className="review-item">
+        {/* <div className="review-item">
             <span className="review-label">Nationality</span>
             <span className="review-value">
                 {formData.nationality || "Not Provided"}
             </span>
-        </div>
+        </div> */}
 
         <div className="review-item">
             <span className="review-label">LGA</span>
@@ -216,10 +220,10 @@ function ReviewScreen({
             <span className="review-value">{formData.preferredLocation || "Not Provided"}</span>
         </div>
 
-        <div className="review-item">
+        {/* <div className="review-item">
             <span className="review-label">Available To Start</span>
             <span className="review-value">{formData.availability || "Not Provided"}</span>
-        </div>
+        </div> */}
 
     </div>
 
@@ -238,7 +242,10 @@ function ReviewScreen({
         <div className="review-item">
             <span className="review-label">Primary Skill</span>
             <span className="review-value">
-               {formData.primarySkill || "Not Provided"}
+            {formData.primarySkill === "Other"
+                ? formData.otherPrimarySkill || "Not Provided"
+                : formData.primarySkill || "Not Provided"}
+                
             </span>
         </div>
 
@@ -294,9 +301,16 @@ function ReviewScreen({
 
         <div>
 
-           <h4>
-    {formData.cv?.name || "No CV Uploaded"}
+        <h4>
+    {formData.cv
+        ? formData.cv.name
+        : "No CV Uploaded"}
 </h4>
+
+<small>
+    {formData.cv &&
+        `${(formData.cv.size / 1024 / 1024).toFixed(2)} MB`}
+</small>
 
            <p>
        {formData.cv
@@ -339,10 +353,17 @@ function ReviewScreen({
     type="button"
     className="review-submit-btn"
     onClick={onSubmit}
+    disabled={isSubmitting}
 >
-    Create Employment Profile
+    {isSubmitting ? (
+        <>
+            <span className="button-spinner"></span>
+            Creating Profile...
+        </>
+    ) : (
+        "Create Employment Profile"
+    )}
 </button>
-
 </div>
 
  </div>

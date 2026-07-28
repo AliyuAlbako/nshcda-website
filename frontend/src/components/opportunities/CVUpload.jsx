@@ -40,6 +40,7 @@ function CVUpload({ formData, setFormData }) {
 
   const handleFileChange = (e) => {
     handleFile(e.target.files[0]);
+     e.target.value = "";
   };
 
   const handleDragOver = (e) => {

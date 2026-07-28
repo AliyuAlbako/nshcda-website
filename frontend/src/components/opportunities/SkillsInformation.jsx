@@ -41,7 +41,7 @@ function SkillsInformation({ formData, handleChange }) {
     onChange={handleChange}
 >
     
-            <option>Select Skill Area</option>
+            <option value="">Select Skill Area</option>
     
             <option>Administration</option>
             <option>Agriculture</option>
@@ -64,6 +64,20 @@ function SkillsInformation({ formData, handleChange }) {
             <option>Other</option>
     
           </select>
+
+          {formData.primarySkill === "Other" && (
+  <div className="form-group full-width">
+    <label>Please Specify Your Primary Skill</label>
+
+    <input
+      type="text"
+      name="otherPrimarySkill"
+      value={formData.otherPrimarySkill}
+      onChange={handleChange}
+      placeholder="e.g. GIS Mapping, Drone Operation"
+    />
+  </div>
+)}
     
         </div>
     
@@ -104,6 +118,7 @@ function SkillsInformation({ formData, handleChange }) {
     name="certifications"
     value={formData.certifications}
     onChange={handleChange}
+    placeholder= 'Examples: Google Data Analytics, Cisco CCNA, ICAN, PMP, TRCN'
 ></textarea>
     
         </div>
@@ -117,6 +132,7 @@ function SkillsInformation({ formData, handleChange }) {
     name="careerInterests"
     value={formData.careerInterests}
     onChange={handleChange}
+    placeholder='Examples: Software Development, Teaching, Healthcare, Agriculture, Finance, Public Service'
 ></textarea>
         </div>
     

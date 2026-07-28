@@ -4,7 +4,6 @@ export const initialFormData = {
   lastName: "",
   gender: "",
   dateOfBirth: "",
-  nationality: "Nigerian",
   lga: "",
 
   // Contact
@@ -32,10 +31,10 @@ nyscStatus: "",
   employmentType: "",
   sector: "",
   preferredLocation: "",
-  availability: "",
 
   // Skills
   primarySkill: "",
+  otherPrimarySkill: "",
   languages: "",
   professionalSkills: "",
   certifications: "",

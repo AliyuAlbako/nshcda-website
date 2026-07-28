@@ -89,7 +89,7 @@ function PersonalInformation({ formData, handleChange }) {
 
         </div>
 
-        <div className="form-group">
+        {/* <div className="form-group">
 
           <label>Nationality</label>
 
@@ -100,7 +100,7 @@ function PersonalInformation({ formData, handleChange }) {
             onChange={handleChange}
           />
 
-        </div>
+        </div> */}
 
         <div className="form-group">
 
