@@ -8,11 +8,9 @@ const { uploadCV } = require("../services/cloudinaryService");
  * @access  Public
  */
 const createEmploymentProfile = async (req, res) => {
-    console.time("🚀 Total Registration Time");
 
     try {
-        // ================= PREPARE REQUEST =================
-        console.time("1️⃣ Request Preparation");
+
 
         if (req.body.primarySkill === "Other") {
             req.body.primarySkill = req.body.otherPrimarySkill;
@@ -20,19 +18,12 @@ const createEmploymentProfile = async (req, res) => {
 
         delete req.body.otherPrimarySkill;
 
-        console.timeEnd("1️⃣ Request Preparation");
-
-        // ================= DUPLICATE EMAIL CHECK =================
-        console.time("2️⃣ MongoDB Duplicate Check");
-
         const existingProfile = await EmploymentProfile.findOne({
             email: req.body.email,
         });
 
-        console.timeEnd("2️⃣ MongoDB Duplicate Check");
 
         if (existingProfile) {
-            console.timeEnd("🚀 Total Registration Time");
 
             return res.status(409).json({
                 success: false,
@@ -45,27 +36,24 @@ const createEmploymentProfile = async (req, res) => {
         let uploadedCV = null;
 
         if (req.file) {
-            console.time("3️⃣ Cloudinary Upload");
+           
 
             uploadedCV = await uploadCV(req.file);
 
-            console.timeEnd("3️⃣ Cloudinary Upload");
+          
         } else {
             console.log("3️⃣ Cloudinary Upload: No CV uploaded");
         }
 
         // ================= SAVE PROFILE =================
-        console.time("4️⃣ MongoDB Save");
 
         const profile = await EmploymentProfile.create({
             ...req.body,
             cv: uploadedCV,
         });
 
-        console.timeEnd("4️⃣ MongoDB Save");
-
         // ================= EMAIL =================
-        console.time("5️⃣ Send Confirmation Email");
+
 
         // ============================================
 // Respond to the user immediately
@@ -86,8 +74,6 @@ res.status(201).json({
 (async () => {
     try {
 
-        console.time("5️⃣ Send Confirmation Email");
-
         await sendRegistrationEmail({
             firstName: profile.firstName,
             email: profile.email,
@@ -98,13 +84,9 @@ res.status(201).json({
             {
                 emailSent: true,
             }
-        );
+        )
 
-        console.timeEnd("5️⃣ Send Confirmation Email");
-
-        console.log(
-            `✅ Confirmation email sent to ${profile.email}`
-        );
+    
 
     } catch (emailError) {
 
@@ -120,8 +102,7 @@ res.status(201).json({
 
 
 
-        console.error(error);
-        console.timeEnd("🚀 Total Registration Time");
+        
         return res.status(500).json({
             success: false,
             message: error.message,

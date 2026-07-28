@@ -13,9 +13,19 @@ const employmentProfileRoutes = require("./routes/employmentProfileRoutes");
 
 const app = express();
 
+// ============================
+// Middleware
+// ============================
+
 app.use(cors());
+
 app.use(express.json());
+
 app.use(express.urlencoded({ extended: true }));
+
+// ============================
+// API Routes
+// ============================
 
 app.use("/api/auth", authRoutes);
 app.use("/api/opportunities", opportunityRoutes);
@@ -24,27 +34,39 @@ app.use("/api/dashboard", dashboardRoutes);
 app.use("/api/media", mediaRoutes);
 app.use("/api/employment-profiles", employmentProfileRoutes);
 
+// ============================
+// Health Check
+// ============================
+
 app.get("/", (req, res) => {
-  res.send("NSHCDA backend running");
+    res.status(200).json({
+        success: true,
+        message: "NSHCDA Backend API is running.",
+    });
 });
 
-
-
+// ============================
 // Handle Unknown Routes
+// ============================
+
 app.use((req, res) => {
-  res.status(404).json({
-    success: false,
-    message: "Route not found.",
-  });
+    res.status(404).json({
+        success: false,
+        message: "Route not found.",
+    });
 });
 
+// ============================
 // Global Error Handler
-app.use((err, req, res, next) => {
-  console.error(err.stack);
+// ============================
 
-  res.status(err.status || 500).json({
-    success: false,
-    message: err.message || "Internal Server Error",
-  });
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+
+    res.status(err.status || 500).json({
+        success: false,
+        message: err.message || "Internal Server Error",
+    });
 });
+
 module.exports = app;
