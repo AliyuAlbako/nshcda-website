@@ -30,6 +30,7 @@ function RegistrationSuccess() {
           You can now explore opportunities, apply for programmes and keep
           your profile up to date.
         </p>
+              <i style={{color:red}}>Confirmation mail will be sent you email</i>        
 
         <div className="success-features">
 
@@ -70,12 +71,15 @@ function RegistrationSuccess() {
 
         <div className="success-actions">
 
+         
+          <Link to="/opportunities">
           <button
             type="button"
             className="secondary-success-btn"
           >
             Browse Opportunities
           </button>
+          </Link>
 {/* 
           <button
             type="button"
