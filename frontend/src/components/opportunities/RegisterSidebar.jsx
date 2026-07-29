@@ -67,7 +67,7 @@ function RegisterSidebar() {
 
           <div>
             <FaPhoneAlt />
-            <span>+234 XXX XXX XXXX</span>
+            <span>+2348032431051</span>
           </div>
 
           <div>
