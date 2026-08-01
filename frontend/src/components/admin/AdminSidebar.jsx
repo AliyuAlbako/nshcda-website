@@ -1,14 +1,56 @@
+import {
+  FaTachometerAlt,
+  FaUsers,
+  FaBriefcase,
+  FaFileAlt,
+  FaImages,
+  FaChartBar,
+  FaCog,
+  FaSignOutAlt,
+} from "react-icons/fa";
+
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
-function AdminSidebar() {
+function AdminSidebar({ sidebarOpen }) {
   const location = useLocation();
   const navigate = useNavigate();
 
   const links = [
-    { label: "Dashboard", path: "/admin/dashboard" },
-    { label: "Applications", path: "/admin/applications" },
-    { label: "Opportunities", path: "/admin/opportunities" },
-    { label: "Media", path: "/admin/media" },
+    {
+      label: "Dashboard",
+      path: "/admin/dashboard",
+      icon: <FaTachometerAlt />,
+    },
+    {
+      label: "Employment Profiles",
+      path: "/admin/employment-profiles",
+      icon: <FaUsers />,
+    },
+    {
+      label: "Applications",
+      path: "/admin/applications",
+      icon: <FaFileAlt />,
+    },
+    {
+      label: "Opportunities",
+      path: "/admin/opportunities",
+      icon: <FaBriefcase />,
+    },
+    {
+      label: "Media",
+      path: "/admin/media",
+      icon: <FaImages />,
+    },
+    {
+      label: "Reports",
+      path: "/admin/reports",
+      icon: <FaChartBar />,
+    },
+    {
+      label: "Settings",
+      path: "/admin/settings",
+      icon: <FaCog />,
+    },
   ];
 
   const handleLogout = () => {
@@ -18,10 +60,30 @@ function AdminSidebar() {
   };
 
   return (
-    <aside className="admin-sidebar">
+    <aside
+      className={`admin-sidebar ${
+        sidebarOpen ? "expanded" : "collapsed"
+      }`}
+    >
       <div className="admin-sidebar-header">
-        <h2>NSHCDA Admin</h2>
-      </div>
+
+  <img
+    src="/images/nashcda-logo.png"
+    alt="NSHCDA Logo"
+    className="admin-logo"
+  />
+
+  {sidebarOpen && (
+    <>
+      <h2>NSHCDA</h2>
+
+      <p>Opportunities Portal</p>
+
+      <small>Administration</small>
+    </>
+  )}
+
+</div>
 
       <nav className="admin-sidebar-nav">
         {links.map((link) => (
@@ -32,12 +94,25 @@ function AdminSidebar() {
               location.pathname === link.path ? "active" : ""
             }`}
           >
-            {link.label}
+            <span className="admin-nav-icon">
+              {link.icon}
+            </span>
+
+            {sidebarOpen && (
+              <span>{link.label}</span>
+            )}
           </Link>
         ))}
 
-        <button className="admin-logout-btn" onClick={handleLogout}>
-          Logout
+        <button
+          className="admin-logout-btn"
+          onClick={handleLogout}
+        >
+          <FaSignOutAlt />
+
+          {sidebarOpen && (
+            <span>Logout</span>
+          )}
         </button>
       </nav>
     </aside>
