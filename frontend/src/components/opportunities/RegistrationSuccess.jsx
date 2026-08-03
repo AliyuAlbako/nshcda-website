@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import {
   FaCheckCircle,
   FaBriefcase,
@@ -30,7 +31,7 @@ function RegistrationSuccess() {
           You can now explore opportunities, apply for programmes and keep
           your profile up to date.
         </p>
-              <i style={{color:red}}>Confirmation mail will be sent you email</i>        
+              <i style={{color:'red'}}>Confirmation mail will be sent your email</i>        
 
         <div className="success-features">
 

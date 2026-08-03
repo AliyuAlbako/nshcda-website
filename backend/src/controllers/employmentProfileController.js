@@ -59,8 +59,6 @@ const createEmploymentProfile = async (req, res) => {
 // Respond to the user immediately
 // ============================================
 
-console.timeEnd("🚀 Total Registration Time");
-
 res.status(201).json({
     success: true,
     message: "Employment profile created successfully.",
