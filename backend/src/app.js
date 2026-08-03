@@ -22,6 +22,8 @@ app.use(
     origin: [
       "http://localhost:5173",
       "https://nshcda.vercel.app/",
+       "https://www.nshcda.com.ng",
+        "https://nshcda.com.ng",
     ],
     credentials: true,
   })

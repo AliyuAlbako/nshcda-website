@@ -9,6 +9,7 @@ import AdminDashboard from "../pages/admin/AdminDashboard";
 import AdminApplications from "../pages/admin/AdminApplications";
 import AdminOpportunities from "../pages/admin/AdminOpportunities";
 import AdminMedia from "../pages/admin/AdminMedia";
+import AdminEmploymentProfiles from "../pages/admin/AdminEmploymentProfiles";
 import NotFound from "../pages/NotFound";
 
 function AdminRoutes() {
@@ -35,6 +36,10 @@ function AdminRoutes() {
           <Route
             path="dashboard"
             element={<AdminDashboard />}
+          />
+          <Route
+            path="employment-profiles"
+            element={<AdminEmploymentProfiles />}
           />
 
           <Route
