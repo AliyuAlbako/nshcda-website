@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import { login } from "../../services/authService";
 
 function AdminLogin() {
   const navigate = useNavigate();
@@ -12,8 +12,6 @@ function AdminLogin() {
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-
-  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -31,15 +29,23 @@ function AdminLogin() {
       setLoading(true);
       setError("");
 
-      const response = await axios.post(`${API_URL}/api/auth/login`, formData);
+      const response = await login(formData);
 
-      localStorage.setItem("adminToken", response.data.token);
-      localStorage.setItem("adminUser", JSON.stringify(response.data.admin));
+      localStorage.setItem("adminToken", response.token);
+      localStorage.setItem(
+        "adminUser",
+        JSON.stringify(response.admin)
+      );
 
       navigate("/admin/dashboard");
+
     } catch (err) {
       console.error(err);
-      setError(err.response?.data?.message || "Login failed");
+
+      setError(
+        err.response?.data?.message || "Login failed."
+      );
+
     } finally {
       setLoading(false);
     }
@@ -48,15 +54,29 @@ function AdminLogin() {
   return (
     <section className="page-section">
       <div className="container">
+
         <div className="admin-login-card card">
+
           <h1>Admin Login</h1>
-          <p>Sign in to manage opportunities and applications.</p>
 
-          {error && <p className="form-error">{error}</p>}
+          <p>
+            Sign in to manage opportunities and applications.
+          </p>
 
-          <form onSubmit={handleSubmit} className="admin-login-form">
+          {error && (
+            <p className="form-error">
+              {error}
+            </p>
+          )}
+
+          <form
+            onSubmit={handleSubmit}
+            className="admin-login-form"
+          >
+
             <div>
               <label>Email Address</label>
+
               <input
                 type="email"
                 name="email"
@@ -68,6 +88,7 @@ function AdminLogin() {
 
             <div>
               <label>Password</label>
+
               <input
                 type="password"
                 name="password"
@@ -85,8 +106,11 @@ function AdminLogin() {
             >
               {loading ? "Signing In..." : "Sign In"}
             </button>
+
           </form>
+
         </div>
+
       </div>
     </section>
   );
