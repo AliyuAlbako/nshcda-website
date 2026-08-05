@@ -1,21 +1,15 @@
-import axios from "axios";
-
-const API = axios.create({
-    baseURL:  import.meta.env.VITE_API_URL || "http://localhost:5000/api",
-    
-});
+import API from "./api";
 
 export const createEmploymentProfile = async (formData) => {
+  const { data } = await API.post(
+    "/employment-profiles",
+    formData,
+    {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    }
+  );
 
-    const response = await API.post(
-        "/employment-profiles",
-        formData,
-        {
-            headers: {
-                "Content-Type": "multipart/form-data",
-            },
-        }
-    );
-
-    return response.data;
+  return data;
 };
