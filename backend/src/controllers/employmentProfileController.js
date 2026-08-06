@@ -10,6 +10,7 @@ const { uploadCV } = require("../services/cloudinaryService");
 const createEmploymentProfile = async (req, res) => {
 
     try {
+    
 
 
         if (req.body.primarySkill === "Other") {
@@ -38,8 +39,10 @@ const createEmploymentProfile = async (req, res) => {
         if (req.file) {
            
 
-            uploadedCV = await uploadCV(req.file);
+           const applicantName = `${req.body.firstName} ${req.body.lastName}`;
 
+            uploadedCV = await uploadCV(req.file, applicantName);
+            
           
         } else {
             console.log("3️⃣ Cloudinary Upload: No CV uploaded");
@@ -51,6 +54,7 @@ const createEmploymentProfile = async (req, res) => {
             ...req.body,
             cv: uploadedCV,
         });
+            
 
         // ================= EMAIL =================
 
