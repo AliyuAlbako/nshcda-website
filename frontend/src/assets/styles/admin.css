@@ -385,3 +385,85 @@
   font-size: .75rem;
   margin-top: .25rem;
 }
+
+
+/* Employment Profile Actions */
+
+.admin-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.admin-btn {
+  border: none;
+  padding: 0.45rem 0.85rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.admin-btn-view {
+  background: #0b3d2e;
+  color: white;
+}
+
+.admin-btn-view:hover {
+  background: #0f5a43;
+}
+
+.admin-btn-delete {
+  background: #d92d20;
+  color: white;
+}
+
+.admin-btn-delete:hover {
+  background: #b42318;
+}
+
+/* ===========================
+   Admin Modal
+=========================== */
+
+.admin-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.45);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 1000;
+}
+
+.admin-modal {
+  width: 95%;
+  max-width: 700px;
+
+  max-height: 85vh;
+  overflow-y: auto;
+
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.admin-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 1rem;
+}
+
+.admin-close-btn {
+  border: none;
+  background: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.admin-modal-body p {
+  margin-bottom: .85rem;
+}
