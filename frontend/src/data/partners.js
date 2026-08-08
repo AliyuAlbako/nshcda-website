@@ -49,6 +49,11 @@ const partners = [
     name: "PAN Nigeria Limited",
     logo: "/images/partners/pannigeria.jpg",
   },
+  {
+    id: 11,
+    name: "Guarantee Trus Bank",
+    logo: "/images/partners/gtbank.png",
+  },
 ];
 
 export default partners;

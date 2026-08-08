@@ -102,6 +102,11 @@ const employmentProfileSchema = new mongoose.Schema(
             type: String,
         },
 
+        // ================= TALENT POOL =================
+    talentPoolVisible: {
+            type: Boolean,
+            default: true,
+        },
         // ================= SKILLS =================
         primarySkill: {
             type: String,

@@ -1911,3 +1911,34 @@
     transform: rotate(360deg);
   }
 }
+
+
+.talent-pool-visibility {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  border-radius: 10px;
+  background: #f7f9fc;
+  border: 1px solid #e5e7eb;
+}
+
+.talent-pool-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  cursor: pointer;
+  font-weight: 600;
+  color: #0b3d2e;
+}
+
+.talent-pool-checkbox input {
+  margin-top: 0.25rem;
+  width: auto;
+  accent-color: #0b3d2e;
+}
+
+.talent-pool-help {
+  margin: 0.6rem 0 0 1.7rem;
+  color: #6b7280;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}

@@ -1,5 +1,6 @@
 const Application = require("../models/Application");
 const Opportunity = require("../models/Opportunity");
+const EmploymentProfile = require("../models/EmploymentProfile");
 
 const getDashboardStats = async (req, res) => {
   try {
@@ -15,7 +16,10 @@ const getDashboardStats = async (req, res) => {
       status: "Open",
     });
 
+    const totalEmploymentProfiles =  await EmploymentProfile.countDocuments();
+
     res.status(200).json({
+      totalEmploymentProfiles,
       totalApplications,
       pendingApplications,
       shortlistedApplications,
