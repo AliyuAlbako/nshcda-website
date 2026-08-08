@@ -80,14 +80,14 @@ useEffect(() => {
 }, [currentStep, sectionToEdit]);
 
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
+const handleChange = (e) => {
+  const { name, value, type, checked } = e.target;
 
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
+  setFormData((prev) => ({
+    ...prev,
+    [name]: type === "checkbox" ? checked : value,
+  }));
+};
 
 //    const confirmed = window.confirm(
 //     "Are you sure you want to create your employment profile?"
@@ -163,12 +163,41 @@ const handleSubmit = async () => {
             handleChange={handleChange}
           />
           </div>
+
+
+      
     <div ref={employmentRef}>
           <EmploymentInformation
             formData={formData}
             handleChange={handleChange}
           />
           </div>
+
+ {/* ================= TALENT POOL VISIBILITY ================= */}
+
+<div className="talent-pool-visibility">
+
+  <label className="talent-pool-checkbox">
+
+    <input
+      type="checkbox"
+      name="talentPoolVisible"
+      checked={formData.talentPoolVisible}
+      onChange={handleChange}
+    />
+
+    <span>
+      Make my profile visible to employers through the NSHCDA Talent Pool.
+    </span>
+
+  </label>
+
+  <p className="talent-pool-help">
+    Your phone number, email address and CV will not be publicly displayed.
+    NSHCDA will only share your CV with verified employers upon request.
+  </p>
+
+</div>
   <div ref={skillsRef}>
           <SkillsInformation
             formData={formData}
@@ -177,6 +206,8 @@ const handleSubmit = async () => {
           </div>
 
           <ProfileNote />
+
+
 
     <div ref={cvRef}>    
          <CVUpload

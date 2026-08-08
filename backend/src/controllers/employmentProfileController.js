@@ -227,6 +227,32 @@ const updateEmploymentProfile = async (req, res) => {
  * @route   DELETE /api/employment-profiles/:id
  * @access  Private (Later)
  */
+
+
+/**
+ * @desc    Get profile counts
+ * @route   GET /api/employment-profiles/stats/count
+ * @access  Private 
+ */
+
+
+
+const getEmploymentProfileCount = async (req, res) => {
+  try {
+    const totalProfiles = await EmploymentProfile.countDocuments();
+
+    res.status(200).json({
+      success: true,
+      totalProfiles,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
 const deleteEmploymentProfile = async (req, res) => {
     try {
 
@@ -262,4 +288,5 @@ module.exports = {
     getEmploymentProfile,
     updateEmploymentProfile,
     deleteEmploymentProfile,
+    getEmploymentProfileCount,
 };

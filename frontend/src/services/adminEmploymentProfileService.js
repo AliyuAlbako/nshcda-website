@@ -9,3 +9,8 @@ export const deleteEmploymentProfile = async (id) => {
   const { data } = await API.delete(`/employment-profiles/${id}`);
   return data;
 };
+
+export const getEmploymentProfileCount = async () => {
+  const { data } = await API.get("/employment-profiles/stats/count");
+  return data;
+};

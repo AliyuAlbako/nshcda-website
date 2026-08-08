@@ -16,7 +16,6 @@ export const initialFormData = {
   fieldOfStudy: "",
   institution: "",
   graduationYear: "",
-  qualification: "",
   fieldOfStudy: "",
    institution: "",
    graduationYear: "",
@@ -31,6 +30,9 @@ nyscStatus: "",
   employmentType: "",
   sector: "",
   preferredLocation: "",
+
+  // Talent Pool
+talentPoolVisible: true,
 
   // Skills
   primarySkill: "",

@@ -6,6 +6,7 @@ function AdminDashboard() {
   const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
   const [stats, setStats] = useState({
+    totalEmploymentProfiles: 0,
     totalApplications: 0,
     pendingApplications: 0,
     shortlistedApplications: 0,
@@ -67,11 +68,12 @@ function AdminDashboard() {
   const safe = (v) => (typeof v === "number" ? v : 0);
 
 const dashboardStats = [
-  { title: "Total Applications", value: safe(stats.totalApplications) },
-  { title: "Pending Reviews", value: safe(stats.pendingApplications) },
-  { title: "Shortlisted", value: safe(stats.shortlistedApplications) },
-  { title: "Total Opportunities", value: safe(stats.totalOpportunities) },
-  { title: "Open Opportunities", value: safe(stats.openOpportunities) },
+  {title: "Employment Profiles", value: safe(stats.totalEmploymentProfiles)},
+  // { title: "Total Applications", value: safe(stats.totalApplications) },
+  // { title: "Pending Reviews", value: safe(stats.pendingApplications) },
+  // { title: "Shortlisted", value: safe(stats.shortlistedApplications) },
+  // { title: "Total Opportunities", value: safe(stats.totalOpportunities) },
+  // { title: "Open Opportunities", value: safe(stats.openOpportunities) },
 ];
   return (
     <section className="admin-page">
