@@ -45,6 +45,22 @@ const uploadCV = async (file) => {
   });
 };
 
+
+/**
+ * Delete CV from Cloudinary
+ */
+const deleteCV = async (publicId) => {
+    if (!publicId) {
+        return;
+    }
+
+    return await cloudinary.uploader.destroy(publicId, {
+        resource_type: "raw",
+    });
+};
+
+
 module.exports = {
-  uploadCV,
+    uploadCV,
+    deleteCV,
 };
