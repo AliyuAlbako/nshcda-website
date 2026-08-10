@@ -1,4 +1,6 @@
 const express = require("express");
+const protect = require("../middleware/authMiddleware");
+
 
 const {
   createEmploymentProfile,
@@ -27,9 +29,9 @@ router
 
 // ================= Get, Update & Delete Single Profile =================
 router
-  .route("/:id")
-  .get(getEmploymentProfile)
-  .put(updateEmploymentProfile)
-  .delete(deleteEmploymentProfile);
+    .route("/:id")
+    .get(getEmploymentProfile)
+    .put(updateEmploymentProfile)
+    .delete(protect, deleteEmploymentProfile);
 
 module.exports = router;

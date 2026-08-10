@@ -1,6 +1,6 @@
 const EmploymentProfile = require("../models/EmploymentProfile");
 const { sendRegistrationEmail } = require("../services/emailService");
-const { uploadCV } = require("../services/cloudinaryService");
+const { uploadCV, deleteCV} = require("../services/cloudinaryService");
 
 /**
  * @desc    Create Employment Profile
@@ -265,6 +265,31 @@ const deleteEmploymentProfile = async (req, res) => {
             });
         }
 
+        // ================= DELETE CV FROM CLOUDINARY =================
+
+        if (profile.cv?.publicId) {
+
+            try {
+
+                await deleteCV(profile.cv.publicId);
+
+            } catch (cloudinaryError) {
+
+                console.error(
+                    "Cloudinary CV deletion failed:",
+                    cloudinaryError.message
+                );
+
+                return res.status(500).json({
+                    success: false,
+                    message:
+                        "Profile could not be deleted because the CV could not be removed from storage.",
+                });
+            }
+        }
+
+        // ================= DELETE PROFILE FROM MONGODB =================
+
         await profile.deleteOne();
 
         return res.status(200).json({
@@ -274,11 +299,12 @@ const deleteEmploymentProfile = async (req, res) => {
 
     } catch (error) {
 
+        console.error("Delete Employment Profile Error:", error);
+
         return res.status(500).json({
             success: false,
             message: error.message,
         });
-
     }
 };
 
