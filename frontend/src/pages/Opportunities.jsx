@@ -98,6 +98,13 @@ function Opportunities() {
             </p>
 
             <div className="hero-actions">
+                        <a
+              href="#current-opportunities"
+              className="btn btn-outline-light btn-outline"
+            >
+              View Opportunities
+            </a>
+
 
               <Link
                 to="/opportunities/register"
@@ -280,7 +287,7 @@ function Opportunities() {
 
          {/* ================= CURRENT OPPORTUNITIES ================= */}
 
-<section className="current-opportunities">
+<section className="current-opportunities" id="current-opportunities">
 
   <div className="current-opportunities-header">
 
