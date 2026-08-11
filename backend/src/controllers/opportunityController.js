@@ -1,4 +1,11 @@
 const Opportunity = require("../models/Opportunity");
+const EmploymentProfile = require("../models/EmploymentProfile");
+const {
+  queueOpportunityNotifications,
+} = require("../services/opportunityNotificationService");
+const {
+  sendOpportunityNotificationEmail,
+} = require("../services/emailService");
 
 // ============================================
 // GET ALL OPPORTUNITIES
@@ -55,6 +62,10 @@ const getOpportunity = async (req, res) => {
 // CREATE OPPORTUNITY
 // Admin only
 // ============================================
+// ============================================
+// CREATE OPPORTUNITY
+// Admin only
+// ============================================
 
 const createOpportunity = async (req, res) => {
   try {
@@ -80,11 +91,47 @@ const createOpportunity = async (req, res) => {
       applyLink,
     });
 
+    // ============================================
+    // QUEUE EMAIL NOTIFICATIONS
+    // ============================================
+
+    if (
+      process.env.OPPORTUNITY_EMAIL_NOTIFICATIONS ===
+      "true"
+    ) {
+      try {
+        const result =
+          await queueOpportunityNotifications(
+            opportunity._id
+          );
+
+        console.log(
+          `📧 Opportunity notification queue created: ${result.queued} queued, ${result.skipped} skipped.`
+        );
+      } catch (notificationError) {
+        // Notification failure must NOT cause
+        // opportunity publishing to fail.
+        console.error(
+          "❌ Failed to queue opportunity notifications:",
+          notificationError.message
+        );
+      }
+    } else {
+      console.log(
+        "📧 Opportunity email notifications are disabled."
+      );
+    }
+
+    // ============================================
+    // RESPONSE
+    // ============================================
+
     return res.status(201).json({
       success: true,
       message: "Opportunity created successfully.",
       data: opportunity,
     });
+
   } catch (error) {
     return res.status(500).json({
       success: false,
