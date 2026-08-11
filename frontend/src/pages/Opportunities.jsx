@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+
 import SectionTitle from "../components/SectionTitle";
 import OpportunityCard from "../components/opportunities/OpportunityCard";
-import opportunities from "../data/opportunities";
-
+import { getOpportunities } from "../services/opportunityService";
 import {
   FaBriefcase,
   FaGraduationCap,
@@ -25,6 +26,37 @@ import {
 
 
 function Opportunities() {
+
+  const [opportunities, setOpportunities] = useState([]);
+  const [loadingOpportunities, setLoadingOpportunities] = useState(true);
+  const [opportunityError, setOpportunityError] = useState("");
+
+  useEffect(() => {
+    const loadOpportunities = async () => {
+      try {
+        setLoadingOpportunities(true);
+        setOpportunityError("");
+
+        const response = await getOpportunities();
+
+        setOpportunities(response.data || []);
+      } catch (error) {
+        console.error(
+          "Failed to load opportunities:",
+          error
+        );
+
+        setOpportunityError(
+          "Unable to load opportunities at the moment."
+        );
+      } finally {
+        setLoadingOpportunities(false);
+      }
+    };
+
+    loadOpportunities();
+  }, []);
+
   return (
     <>
       {/* ================= HERO ================= */}
@@ -273,36 +305,61 @@ function Opportunities() {
 
   </div>
 
-  <div className="opportunity-grid">
+ <div className="opportunity-grid">
 
-    {opportunities.length > 0 ? (
+  {loadingOpportunities ? (
 
-      opportunities.map((item) => (
+    <div className="empty-state">
 
-        <OpportunityCard
-          key={item.id}
-          item={item}
-        />
+      <h3>Loading Opportunities...</h3>
 
-      ))
+      <p>
+        Please wait while we load the latest
+        opportunities.
+      </p>
 
-    ) : (
+    </div>
 
-      <div className="empty-state">
+  ) : opportunityError ? (
 
-        <h3>No Opportunities Available</h3>
+    <div className="empty-state">
 
-        <p>
-          There are currently no published opportunities.
-          Please check back later for newly verified
-          opportunities.
-        </p>
+      <h3>Unable to Load Opportunities</h3>
 
-      </div>
+      <p>
+        {opportunityError}
+      </p>
 
-    )}
+    </div>
 
-  </div>
+  ) : opportunities.length > 0 ? (
+
+    opportunities.map((item) => (
+
+      <OpportunityCard
+        key={item._id}
+        item={item}
+      />
+
+    ))
+
+  ) : (
+
+    <div className="empty-state">
+
+      <h3>No Opportunities Available</h3>
+
+      <p>
+        There are currently no published opportunities.
+        Please check back later for newly available
+        opportunities.
+      </p>
+
+    </div>
+
+  )}
+
+</div>
 
 </section>
 

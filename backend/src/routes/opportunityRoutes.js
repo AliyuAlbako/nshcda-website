@@ -1,9 +1,8 @@
 const express = require("express");
-const router = express.Router();
 
 const {
-  getAllOpportunities,
-  getOpportunityById,
+  getOpportunities,
+  getOpportunity,
   createOpportunity,
   updateOpportunity,
   deleteOpportunity,
@@ -11,13 +10,25 @@ const {
 
 const protect = require("../middleware/authMiddleware");
 
-// PUBLIC
-router.get("/", getAllOpportunities);
-router.get("/:id", getOpportunityById);
+const router = express.Router();
 
-// ADMIN
-router.post("/", protect, createOpportunity);
-router.put("/:id", protect, updateOpportunity);
-router.delete("/:id", protect, deleteOpportunity);
+// ============================================
+// PUBLIC
+// ============================================
+
+router
+  .route("/")
+  .get(getOpportunities)
+  .post(protect, createOpportunity);
+
+// ============================================
+// SINGLE OPPORTUNITY
+// ============================================
+
+router
+  .route("/:id")
+  .get(getOpportunity)
+  .put(protect, updateOpportunity)
+  .delete(protect, deleteOpportunity);
 
 module.exports = router;

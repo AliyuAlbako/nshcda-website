@@ -1,16 +1,70 @@
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import opportunities from "../data/opportunities";
+import { getOpportunity } from "../services/opportunityService";
 
 function OpportunityDetails() {
   const { id } = useParams();
-  const opportunity = opportunities.find((item) => String(item.id) === id);
 
-  if (!opportunity) {
+  const [opportunity, setOpportunity] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    const loadOpportunity = async () => {
+      try {
+        setLoading(true);
+        setError("");
+
+        const response = await getOpportunity(id);
+
+        setOpportunity(response.data);
+      } catch (error) {
+        console.error(
+          "Failed to load opportunity:",
+          error
+        );
+
+        setError(
+          error.response?.data?.message ||
+            "Failed to load opportunity."
+        );
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadOpportunity();
+  }, [id]);
+
+  if (loading) {
     return (
       <section className="page-section">
         <div className="container">
+          <h1>Loading Opportunity...</h1>
+        </div>
+      </section>
+    );
+  }
+
+  if (error || !opportunity) {
+    return (
+      <section className="page-section">
+        <div className="container">
+
           <h1>Opportunity Not Found</h1>
-          <p>The requested opportunity does not exist.</p>
+
+          <p>
+            {error ||
+              "The requested opportunity does not exist."}
+          </p>
+
+          <Link
+            to="/opportunities"
+            className="btn"
+          >
+            Back to Opportunities
+          </Link>
+
         </div>
       </section>
     );
@@ -18,96 +72,116 @@ function OpportunityDetails() {
 
   return (
     <section className="page-section">
+
       <div className="container">
-        <div className="opportunity-details card">
-          <div className="opportunity-top">
-            <span className={`status-badge ${opportunity.status.toLowerCase()}`}>
+
+        <div className="opportunity-details">
+
+          {/* Status and Type */}
+          <div className="opportunity-details-badges">
+
+            <span
+              className={`status-badge ${opportunity.status.toLowerCase()}`}
+            >
               {opportunity.status}
             </span>
-            <span className="category-badge">{opportunity.category}</span>
-          </div>
 
-          <div className="opportunity-meta-top" style={{ marginTop: "1rem" }}>
-            <span className={`mode-badge ${opportunity.applicationMode}`}>
-              {opportunity.applicationMode === "internal"
-                ? "Internal Opportunity"
-                : "External Opportunity"}
+            <span className="category-badge">
+              {opportunity.type}
             </span>
-            <span className="source-badge">{opportunity.source}</span>
+
           </div>
 
-          <h1 style={{ marginTop: "1rem" }}>{opportunity.title}</h1>
+          {/* Title */}
+          <h1>
+            {opportunity.title}
+          </h1>
 
+          {/* Meta */}
           <div className="details-meta">
-            <p><strong>Thematic Area:</strong> {opportunity.thematicArea}</p>
-            <p><strong>Location:</strong> {opportunity.location}</p>
-            <p><strong>Deadline:</strong> {opportunity.deadline}</p>
+
+            <p>
+              <strong>Organization:</strong>{" "}
+              {opportunity.organization}
+            </p>
+
+            <p>
+              <strong>Location:</strong>{" "}
+              {opportunity.location}
+            </p>
+
+            <p>
+              <strong>Application Deadline:</strong>{" "}
+              {opportunity.deadline}
+            </p>
+
           </div>
 
+          {/* Description */}
           <div className="details-section">
-            <h3>Description</h3>
-            <p>{opportunity.description}</p>
+
+            <h3>About This Opportunity</h3>
+
+            <p>
+              {opportunity.description}
+            </p>
+
           </div>
 
-          <div className="details-section">
-            <h3>Eligibility</h3>
-            <p>{opportunity.eligibility}</p>
+          {/* Official Source Notice */}
+          <div className="external-notice">
+
+            <p>
+              For complete information about this
+              opportunity, including available positions,
+              eligibility requirements, application
+              instructions and important dates, please
+              visit the official website of the
+              organization.
+
+            </p>
+
           </div>
 
-          <div className="details-section">
-            <h3>Requirements</h3>
-            <ul>
-              {opportunity.requirements.map((item, index) => (
-                <li key={index}>{item}</li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="details-section">
-            <h3>Benefits</h3>
-            <ul>
-              {opportunity.benefits.map((item, index) => (
-                <li key={index}>{item}</li>
-              ))}
-            </ul>
-          </div>
-
-          {opportunity.applicationMode === "external" && (
-            <div className="external-notice">
-              <p>
-                <strong>Note:</strong> NSHCDA is publishing this opportunity for
-                public awareness. Applications are handled on the official
-                platform of the organizing institution.
-              </p>
-            </div>
-          )}
-
+          {/* Actions */}
           <div className="details-actions">
-            {opportunity.status !== "Open" ? (
-              <button className="btn disabled-btn" disabled>
-                Applications Closed
-              </button>
-            ) : opportunity.applicationMode === "internal" ? (
-              <Link to={`/opportunities/${opportunity.id}/apply`} className="btn">
-                Apply Now
-              </Link>
-            ) : (
+
+            {opportunity.status === "Open" &&
+            opportunity.applyLink ? (
+
               <a
-                href={opportunity.externalUrl}
+                href={opportunity.applyLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn"
               >
-                Apply on Official Platform
+                Apply / View Full Details
               </a>
+
+            ) : (
+
+              <button
+                className="btn disabled-btn"
+                disabled
+              >
+                Applications Closed
+              </button>
+
             )}
 
-            <Link to="/opportunities" className="btn btn-outline-dark">
+            <Link
+              to="/opportunities"
+              className="btn btn-outline-dark"
+            >
               Back to Opportunities
             </Link>
+
           </div>
+
         </div>
+
       </div>
+
     </section>
   );
 }

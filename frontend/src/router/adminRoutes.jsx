@@ -8,6 +8,7 @@ import AdminLogin from "../pages/admin/AdminLogin";
 import AdminDashboard from "../pages/admin/AdminDashboard";
 import AdminApplications from "../pages/admin/AdminApplications";
 import AdminOpportunities from "../pages/admin/AdminOpportunities";
+import AdminOpportunityForm from "../pages/admin/AdminOpportunityForm";
 import AdminMedia from "../pages/admin/AdminMedia";
 import AdminEmploymentProfiles from "../pages/admin/AdminEmploymentProfiles";
 import NotFound from "../pages/NotFound";
@@ -51,6 +52,15 @@ function AdminRoutes() {
             path="opportunities"
             element={<AdminOpportunities />}
           />
+          <Route
+           path="opportunities/new"
+           element={<AdminOpportunityForm />}
+            />
+
+            <Route
+              path="opportunities/:id/edit"
+              element={<AdminOpportunityForm />}
+            />
 
           <Route
             path="media"
