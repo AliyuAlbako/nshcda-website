@@ -10,6 +10,7 @@ const opportunityRoutes = require("./routes/opportunityRoutes");
 const dashboardRoutes = require("./routes/dashboardRoutes");
 const mediaRoutes = require("./routes/mediaRoutes");
 const employmentProfileRoutes = require("./routes/employmentProfileRoutes");
+const cvRequestRoutes = require("./routes/cvRequestRoutes");
 
 const app = express();
 
@@ -43,6 +44,7 @@ app.use("/api/opportunities", opportunityRoutes);
 app.use("/api/dashboard", dashboardRoutes);
 app.use("/api/media", mediaRoutes);
 app.use("/api/employment-profiles", employmentProfileRoutes);
+app.use("/api/cv-requests", cvRequestRoutes);
 
 // ============================
 // Health Check
