@@ -18,6 +18,7 @@ import Dashboard from "../pages/Dashboard";
 import NewsHighlights from "../pages/NewsHighlights";
 import NewsHighlightsDetails from "../pages/NewsHighlightsDetails";
 import HumanCapitalMap from "../pages/HumanCapitalMap";
+import TalentPool from "../pages/TalentPool";
 import Marketplace from "../pages/Marketplace";
 import Staff from "../pages/Staff"
 import Contact from "../pages/Contact";
@@ -40,6 +41,7 @@ function PublicRoutes() {
       <Route path="dashboard" element={<Dashboard />}/>
 
       <Route path="opportunities" element={<Opportunities />} />
+      <Route path="talent-pool" element={<TalentPool />}/>
       <Route path="/opportunities/register" element={<RegisterEmploymentProfile />}/>
       <Route path="opportunities/:id" element={<OpportunityDetails />} />
       <Route path="marketplace" element={<Marketplace />} />

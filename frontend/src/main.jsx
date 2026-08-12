@@ -19,6 +19,7 @@ import "./assets/styles/news.css";
 import "./assets/styles/map.css";
 import "leaflet/dist/leaflet.css";
 import "./assets/styles/employmentProfile.css";
+import "./assets/styles/talentpool.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

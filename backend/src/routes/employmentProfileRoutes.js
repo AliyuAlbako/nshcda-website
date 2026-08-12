@@ -9,6 +9,7 @@ const {
   updateEmploymentProfile,
   deleteEmploymentProfile,
   getEmploymentProfileCount,
+  getTalentPool,
 } = require("../controllers/employmentProfileController");
 
 const upload = require("../middleware/uploadCV");
@@ -18,6 +19,8 @@ const router = express.Router();
 // ================= Employment Profile Statistics =================
 router.get("/stats/count", getEmploymentProfileCount);
 
+
+
 // ================= Create & Get All Profiles =================
 router
   .route("/")
@@ -26,6 +29,9 @@ router
     createEmploymentProfile
   )
   .get(getEmploymentProfiles);
+
+  // ================= Public Talent Pool =================
+router.get("/talent-pool", getTalentPool);
 
 // ================= Get, Update & Delete Single Profile =================
 router

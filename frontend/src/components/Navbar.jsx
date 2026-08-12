@@ -50,6 +50,7 @@ function Navbar() {
     {/* <Link to="/news-highlights" onClick={closeMenu}> Events & Highlights </Link> */}
     <Link to="/news-highlights" onClick={closeMenu}>News & Highlights</Link>
     <Link to="/opportunities" onClick={closeMenu}> Opportunities </Link>
+    <Link to="/talent-pool" onClick={closeMenu}> Talent Pool</Link>
     <Link to="/human-capital-map" onClick={closeMenu}>Human Capital Map</Link>
     <Link to="/leadership" onClick={closeMenu}> Leadership</Link>
     <Link to="/staff" onClick={closeMenu}>Staff Directory</Link>
