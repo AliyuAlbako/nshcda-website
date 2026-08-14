@@ -78,7 +78,20 @@ const cvRequestSchema = new mongoose.Schema(
     processedAt: {
       type: Date,
     },
+
+    cvSentAt: {
+  type: Date,
+    },
+
+    cvSentTo: {
+  type: String,
+  lowercase: true,
+  trim: true,
+    },
+
   },
+
+  
   {
     timestamps: true,
   }

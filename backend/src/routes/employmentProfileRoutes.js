@@ -28,7 +28,7 @@ router
     upload.single("cv"),
     createEmploymentProfile
   )
-  .get(getEmploymentProfiles);
+  .get(protect, getEmploymentProfiles);
 
   // ================= Public Talent Pool =================
 router.get("/talent-pool", getTalentPool);
@@ -36,8 +36,8 @@ router.get("/talent-pool", getTalentPool);
 // ================= Get, Update & Delete Single Profile =================
 router
     .route("/:id")
-    .get(getEmploymentProfile)
-    .put(updateEmploymentProfile)
+    .get(protect, getEmploymentProfile)
+    .put(protect, updateEmploymentProfile)
     .delete(protect, deleteEmploymentProfile);
 
 module.exports = router;

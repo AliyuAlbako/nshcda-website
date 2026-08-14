@@ -1,4 +1,5 @@
 const nodemailer = require("nodemailer");
+const axios = require("axios");
 
 const transporter = nodemailer.createTransport({
   service: "gmail",
@@ -92,7 +93,90 @@ Nasarawa State Human Capital Development Agency
   return transporter.sendMail(mailOptions);
 };
 
+
+// =====================================================
+// SEND CANDIDATE CV TO EMPLOYER
+// =====================================================
+
+const sendCVToEmployer = async ({
+  candidateName,
+  employerName,
+  employerEmail,
+  cvUrl,
+}) => {
+  try {
+    if (!cvUrl) {
+      throw new Error(
+        "Candidate CV is not available."
+      );
+    }
+
+    // Download CV from Cloudinary
+    const cvResponse = await axios.get(cvUrl, {
+      responseType: "arraybuffer",
+      timeout: 30000,
+    });
+
+    const cvBuffer = Buffer.from(
+      cvResponse.data
+    );
+
+    const mailOptions = {
+      from: `"NSHCDA Opportunities Portal" <${process.env.EMAIL_USER}>`,
+      to: employerEmail,
+
+      subject: `Requested CV – ${candidateName}`,
+
+      text: `Dear ${employerName},
+
+Thank you for your interest in a candidate registered on the NSHCDA Talent Pool.
+
+As requested, the candidate's CV is attached to this email for your review.
+
+Candidate: ${candidateName}
+
+Please treat the information contained in the CV as confidential and use it only for legitimate recruitment and employment-related purposes.
+
+This CV was provided through the Nasarawa State Human Capital Development Agency (NSHCDA) Opportunities Portal.
+
+Best regards,
+
+NSHCDA Opportunities Portal
+Nasarawa State Human Capital Development Agency
+`,
+
+      attachments: [
+        {
+          filename: `${candidateName.replace(
+            /[^a-zA-Z0-9]/g,
+            "_"
+          )}_CV.pdf`,
+
+          content: cvBuffer,
+
+          contentType:
+            cvResponse.headers["content-type"] ||
+            "application/pdf",
+        },
+      ],
+    };
+
+    return await transporter.sendMail(
+      mailOptions
+    );
+
+  } catch (error) {
+    console.error(
+      "❌ Failed to send candidate CV:",
+      error.message
+    );
+
+    throw error;
+  }
+};
+
 module.exports = {
   sendRegistrationEmail,
   sendOpportunityNotificationEmail,
+  sendCVToEmployer,
 };

@@ -26,6 +26,12 @@ function AdminSidebar({ sidebarOpen }) {
       path: "/admin/employment-profiles",
       icon: <FaUsers />,
     },
+
+          {
+        label: "CV Requests",
+        path: "/admin/cv-requests",
+        icon: <FaFileAlt />,
+      },
     {
       label: "Applications",
       path: "/admin/applications",

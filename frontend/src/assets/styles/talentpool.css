@@ -466,3 +466,93 @@
     width: 100%;
   }
 }
+
+/* =====================================================
+   CV REQUEST ADMIN ACTIONS
+===================================================== */
+
+.cv-request-admin-actions {
+  display: flex !important;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.cv-request-admin-actions button {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  visibility: visible !important;
+  opacity: 1 !important;
+  border: none !important;
+  border-radius: 6px;
+  padding: 7px 12px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer !important;
+  white-space: nowrap;
+}
+
+/* APPROVE */
+
+.cv-request-approve-btn {
+  background: #0b5d3b !important;
+  color: #ffffff !important;
+}
+
+.cv-request-approve-btn:hover {
+  background: #084a2f !important;
+}
+
+/* REJECT */
+
+.cv-request-reject-btn {
+  background: #f8e5e5 !important;
+  color: #a32929 !important;
+}
+
+.cv-request-reject-btn:hover {
+  background: #f1d2d2 !important;
+}
+
+/* MARK COMPLETED */
+
+.cv-request-complete-btn {
+  background: #0b5d3b !important;
+  color: #ffffff !important;
+}
+
+.cv-request-complete-btn:hover {
+  background: #084a2f !important;
+}
+
+
+/* =====================================================
+   CV REQUEST RESULT INFO
+===================================================== */
+
+.cv-sent-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 130px;
+}
+
+.cv-sent-info strong {
+  color: #0b5d3b;
+  font-size: 0.82rem;
+}
+
+.cv-sent-info small {
+  color: #68737c;
+  font-size: 0.72rem;
+  line-height: 1.3;
+}
+
+.cv-request-rejected-info {
+  color: #a32929;
+  font-size: 0.78rem;
+  font-weight: 600;
+}

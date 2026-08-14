@@ -253,6 +253,52 @@ const getEmploymentProfileCount = async (req, res) => {
   }
 };
 
+
+
+// =====================================================
+// GET TALENT POOL
+// Public
+// Only profiles that opted into the Talent Pool
+// are returned.
+// =====================================================
+
+const getTalentPool = async (req, res) => {
+    try {
+        const profiles = await EmploymentProfile.find({
+            talentPoolVisible: true,
+            status: "Active",
+        })
+            .select(
+                [
+                    "firstName",
+                    "lastName",
+                    "lga",
+                    "qualification",
+                    "fieldOfStudy",
+                    "employmentStatus",
+                    "preferredLocation",
+                    "primarySkill",
+                    "professionalSkills",
+                ].join(" ")
+            )
+            .sort({ createdAt: -1 });
+
+        return res.status(200).json({
+            success: true,
+            count: profiles.length,
+            data: profiles,
+        });
+
+    } catch (error) {
+        console.error("Talent Pool Error:", error);
+
+        return res.status(500).json({
+            success: false,
+            message: error.message,
+        });
+    }
+};
+
 const deleteEmploymentProfile = async (req, res) => {
     try {
 
@@ -309,60 +355,6 @@ const deleteEmploymentProfile = async (req, res) => {
 };
 
 
-// =====================================================
-// GET TALENT POOL
-// Public
-// Only profiles that opted into the Talent Pool
-// are returned.
-// =====================================================
-
-const getTalentPool = async (req, res) => {
-    try {
-        const profiles = await EmploymentProfile.find({
-            talentPoolVisible: true,
-            status: "Active",
-        })
-            .select(
-                [
-                    "firstName",
-                    "lastName",
-                    "gender",
-                    "lga",
-                    "qualification",
-                    "fieldOfStudy",
-                    "institution",
-                    "graduationYear",
-                    "grade",
-                    "nyscStatus",
-                    "employmentStatus",
-                    "experience",
-                    "employmentType",
-                    "sector",
-                    "preferredLocation",
-                    "primarySkill",
-                    "languages",
-                    "professionalSkills",
-                    "certifications",
-                    "careerInterests",
-                ].join(" ")
-            )
-            .sort({ createdAt: -1 });
-
-        return res.status(200).json({
-            success: true,
-            count: profiles.length,
-            data: profiles,
-        });
-
-    } catch (error) {
-        console.error("Talent Pool Error:", error);
-
-        return res.status(500).json({
-            success: false,
-            message: error.message,
-        });
-    }
-};
 module.exports = {
     createEmploymentProfile,
     getEmploymentProfiles,

@@ -1,6 +1,7 @@
 const CVRequest = require("../models/CVRequest");
 const EmploymentProfile = require("../models/EmploymentProfile");
 
+const {sendCVToEmployer} = require("../services/emailService");
 // =====================================================
 // CREATE CV REQUEST
 // Public
@@ -217,8 +218,120 @@ const updateCVRequestStatus = async (
 };
 
 
+// =====================================================
+// SEND CV TO EMPLOYER
+// Admin
+// =====================================================
+
+const sendRequestedCV = async (req, res) => {
+  try {
+    // ============================================
+    // FIND REQUEST
+    // ============================================
+
+    const request = await CVRequest.findById(
+      req.params.id
+    );
+
+    if (!request) {
+      return res.status(404).json({
+        success: false,
+        message: "CV request not found.",
+      });
+    }
+
+    // ============================================
+    // ONLY APPROVED REQUESTS CAN SEND CV
+    // ============================================
+
+    if (request.status !== "Approved") {
+      return res.status(400).json({
+        success: false,
+        message:
+          "Only approved CV requests can be processed.",
+      });
+    }
+
+    // ============================================
+    // GET CANDIDATE PROFILE
+    // ============================================
+
+    const profile =
+      await EmploymentProfile.findById(
+        request.profile
+      );
+
+    if (!profile) {
+      return res.status(404).json({
+        success: false,
+        message:
+          "Candidate employment profile not found.",
+      });
+    }
+
+    // ============================================
+    // CHECK CV
+    // ============================================
+
+    if (!profile.cv?.url) {
+      return res.status(400).json({
+        success: false,
+        message:
+          "This candidate does not have a CV available.",
+      });
+    }
+
+    // ============================================
+    // SEND EMAIL
+    // ============================================
+
+    const candidateName =
+      `${profile.firstName} ${profile.lastName}`;
+
+    await sendCVToEmployer({
+      candidateName,
+      employerName: request.contactPerson,
+      employerEmail: request.email,
+      cvUrl: profile.cv.url,
+    });
+
+    // ============================================
+    // MARK REQUEST COMPLETED
+    // ============================================
+
+    request.status = "Completed";
+    request.cvSentAt = new Date();
+    request.cvSentTo = request.email;
+    request.processedAt = new Date();
+
+    await request.save();
+
+    return res.status(200).json({
+      success: true,
+      message:
+        "Candidate CV has been sent successfully to the employer.",
+      data: request,
+    });
+
+  } catch (error) {
+    console.error(
+      "Send Requested CV Error:",
+      error
+    );
+
+    return res.status(500).json({
+      success: false,
+      message:
+        error.message ||
+        "Failed to send candidate CV.",
+    });
+  }
+};
+
+
 module.exports = {
   createCVRequest,
   getCVRequests,
   updateCVRequestStatus,
+  sendRequestedCV,
 };

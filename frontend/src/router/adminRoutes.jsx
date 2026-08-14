@@ -11,6 +11,7 @@ import AdminOpportunities from "../pages/admin/AdminOpportunities";
 import AdminOpportunityForm from "../pages/admin/AdminOpportunityForm";
 import AdminMedia from "../pages/admin/AdminMedia";
 import AdminEmploymentProfiles from "../pages/admin/AdminEmploymentProfiles";
+import AdminCVRequests from "../pages/admin/AdminCVRequests";
 import NotFound from "../pages/NotFound";
 
 function AdminRoutes() {
@@ -42,6 +43,12 @@ function AdminRoutes() {
             path="employment-profiles"
             element={<AdminEmploymentProfiles />}
           />
+                  <Route
+          path="cv-requests"
+          element={<AdminCVRequests />}
+        />
+
+          
 
           <Route
             path="applications"

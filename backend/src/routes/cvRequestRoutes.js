@@ -4,6 +4,7 @@ const {
   createCVRequest,
   getCVRequests,
   updateCVRequestStatus,
+    sendRequestedCV,
 } = require("../controllers/cvRequestController");
 
 const protect = require("../middleware/authMiddleware");
@@ -26,6 +27,12 @@ router.patch(
   "/:id/status",
   protect,
   updateCVRequestStatus
+);
+
+router.post(
+  "/:id/send-cv",
+  protect,
+  sendRequestedCV
 );
 
 module.exports = router;
