@@ -59,8 +59,89 @@ const deleteCV = async (publicId) => {
     });
 };
 
+//  document upload support, Upload publication document
+
+/**
+ * Upload Publication Document to Cloudinary
+ */
+const uploadPublicationDocument = async (
+  file,
+  title
+) => {
+  return new Promise((resolve, reject) => {
+
+    // Preserve original extension
+    const extension = path.extname(
+      file.originalname
+    );
+
+    // Clean title for filename
+    const cleanTitle = title
+      .replace(/[^a-zA-Z0-9]/g, "-")
+      .replace(/-+/g, "-")
+      .toLowerCase();
+
+    // Generate unique filename
+    const publicId = `${cleanTitle}_${uuidv4()}${extension}`;
+
+    const uploadStream =
+      cloudinary.uploader.upload_stream(
+        {
+          folder: "nshcda/publications",
+
+          resource_type: "raw",
+
+          public_id: publicId,
+
+          overwrite: false,
+        },
+
+        (error, result) => {
+          if (error) {
+            return reject(error);
+          }
+
+          resolve({
+            url: result.secure_url,
+            publicId: result.public_id,
+            originalName: file.originalname,
+            fileSize: file.size,
+            fileType: file.mimetype,
+          });
+        }
+      );
+
+    uploadStream.end(file.buffer);
+
+  });
+};
+// delete document
+
+const deletePublicationDocument = async (
+  publicId
+) => {
+  try {
+    await cloudinary.uploader.destroy(
+      publicId,
+      {
+        resource_type: "raw",
+      }
+    );
+
+  } catch (error) {
+    console.error(
+      "Cloudinary Publication Delete Error:",
+      error
+    );
+
+    throw error;
+  }
+};
+
 
 module.exports = {
     uploadCV,
     deleteCV,
+     uploadPublicationDocument,
+  deletePublicationDocument,
 };

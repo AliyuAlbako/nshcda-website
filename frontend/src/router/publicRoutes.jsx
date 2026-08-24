@@ -21,6 +21,7 @@ import HumanCapitalMap from "../pages/HumanCapitalMap";
 import TalentPool from "../pages/TalentPool";
 import Marketplace from "../pages/Marketplace";
 import Staff from "../pages/Staff"
+import Publications from "../pages/Publications";
 import Contact from "../pages/Contact";
 import NotFound from "../pages/NotFound";
 
@@ -51,6 +52,7 @@ function PublicRoutes() {
       />
 
       <Route path="leadership" element={<Leadership />} />
+      <Route path="/publications" element={<Publications />}/>
 
       <Route path="contact" element={<Contact />} />
       <Route path="human-capital-map" element={<HumanCapitalMap />} />

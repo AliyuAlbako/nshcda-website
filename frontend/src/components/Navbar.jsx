@@ -53,8 +53,9 @@ function Navbar() {
     <Link to="/talent-pool" onClick={closeMenu}> Talent Pool</Link>
     <Link to="/human-capital-map" onClick={closeMenu}>Human Capital Map</Link>
     <Link to="/leadership" onClick={closeMenu}> Leadership</Link>
-    <Link to="/staff" onClick={closeMenu}>Staff Directory</Link>
-    <Link to="/marketplace" onClick={closeMenu}>Marketplace </Link>
+    {/* <Link to="/staff" onClick={closeMenu}>Staff Directory</Link> */}
+    {/* <Link to="/marketplace" onClick={closeMenu}>Marketplace </Link> */}
+    <Link to="/publications" onClick={closeMenu}> Publications & Documents </Link>
     <Link to="/contact" onClick={closeMenu}> Contact</Link>
 </nav>
         

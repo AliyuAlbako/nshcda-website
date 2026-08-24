@@ -9,7 +9,7 @@ const createAdmin = async () => {
     await mongoose.connect(process.env.MONGO_URI);
 
     const existingAdmin = await Admin.findOne({
-      email: "nshcdaadmin@gmail.com",
+      email: "stvnikem@gmail.com",
     });
 
     if (existingAdmin) {
@@ -18,10 +18,10 @@ const createAdmin = async () => {
     }
 
     await Admin.create({
-      name: "NSHCDA Super Admin",
-      email: "nshcdaadmin@gmail.com",
-      password: "Superadmin2026#",
-      role: "super_admin",
+      name: "Steven Ikem",
+      email: "stvnikem@gmail.com",
+      password: "Steveadmin2026#",
+      role: "admin",
     });
 
     console.log("Admin created successfully");
