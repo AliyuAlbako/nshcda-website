@@ -66,7 +66,7 @@ function Opportunities() {
         <div className="opportunities-hero-image">
 
             <img
-              src="/images/opportunities_hero3.png"
+              src="/images/opportunities_hero2.png"
               alt="Employment Support"
             />
 
@@ -97,7 +97,7 @@ function Opportunities() {
               organisations.
             </p>
 
-            <div className="hero-actions">
+            <div className="opportunities-hero-actions">
                         <a
               href="#current-opportunities"
               className="btn btn-outline-light btn-outline"
@@ -108,7 +108,7 @@ function Opportunities() {
 
               <Link
                 to="/opportunities/register"
-                className="btn .opportunities-register-btn"
+                className="btn opportunities-register-btn"
               >
                 Register Employment Profile
               </Link>

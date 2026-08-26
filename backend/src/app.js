@@ -12,6 +12,7 @@ const mediaRoutes = require("./routes/mediaRoutes");
 const employmentProfileRoutes = require("./routes/employmentProfileRoutes");
 const cvRequestRoutes = require("./routes/cvRequestRoutes");
 const publicationRoutes = require("./routes/publicationRoutes");
+const newsHighlightRoutes = require( "./routes/newsHighlightRoutes");
 
 const app = express();
 
@@ -47,6 +48,7 @@ app.use("/api/media", mediaRoutes);
 app.use("/api/employment-profiles", employmentProfileRoutes);
 app.use("/api/cv-requests", cvRequestRoutes);
 app.use("/api/publications", publicationRoutes );
+app.use( "/api/news-highlights",newsHighlightRoutes);
 
 // ============================
 // Health Check

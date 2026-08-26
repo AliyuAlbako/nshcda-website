@@ -29,6 +29,8 @@ function AdminPublications() {
 
   const [documentFile, setDocumentFile] =
     useState(null);
+    const [coverImage, setCoverImage] =
+  useState(null);
 
 
   // ============================================
@@ -140,6 +142,14 @@ const handleSubmit = async (e) => {
       );
     }
 
+    // Only append a cover image if selected
+    if (coverImage) {
+      data.append(
+        "coverImage",
+        coverImage
+      );
+    }
+
     // ============================================
     // UPDATE EXISTING PUBLICATION
     // ============================================
@@ -185,6 +195,7 @@ const handleSubmit = async (e) => {
     });
 
     setDocumentFile(null);
+    setCoverImage(null);
     setEditingPublication(null);
     setShowForm(false);
 
@@ -223,6 +234,7 @@ const handleEdit = (publication) => {
 
   // Don't require a new file when editing
   setDocumentFile(null);
+  setCoverImage(null);
 
   setShowForm(true);
 };
@@ -274,6 +286,7 @@ const handleEdit = (publication) => {
   setEditingPublication(null);
 
   setDocumentFile(null);
+  setCoverImage(null);
 
   setFormData({
     title: "",
@@ -312,6 +325,7 @@ const handleEdit = (publication) => {
         onClick={() => {
             setEditingPublication(null);
             setDocumentFile(null);
+            setCoverImage(null);
 
             setFormData({
             title: "",
@@ -689,6 +703,34 @@ const handleEdit = (publication) => {
                 </small>
 
               </div>
+
+{/* =====================================
+    COVER IMAGE
+===================================== */}
+
+        <div className="admin-form-group">
+
+          <label>
+            Upload Cover Image
+          </label>
+
+          <input
+            type="file"
+            accept="image/jpeg,image/jpg,image/png,image/webp"
+            onChange={(e) =>
+              setCoverImage(
+                e.target.files[0] || null
+              )
+            }
+          />
+
+          <small>
+            {editingPublication
+              ? "Leave this empty to keep the current cover image. Upload a new image only if you want to replace it."
+              : "Optional. Supported formats: JPG, PNG and WEBP. This image will be displayed as the publication cover."}
+          </small>
+
+        </div>
 
 
               <div className="admin-form-actions">

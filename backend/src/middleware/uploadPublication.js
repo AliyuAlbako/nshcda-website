@@ -1,14 +1,21 @@
 const multer = require("multer");
 
 
-// Store files in memory for Cloudinary upload
+// ============================================
+// STORE FILES IN MEMORY FOR CLOUDINARY
+// ============================================
+
 const storage = multer.memoryStorage();
 
 
-// Allow supported document types
+// ============================================
+// FILE FILTER
+// ============================================
+
 const fileFilter = (req, file, cb) => {
 
-  const allowedTypes = [
+  // Document types
+  const allowedDocumentTypes = [
     "application/pdf",
 
     "application/msword",
@@ -21,13 +28,35 @@ const fileFilter = (req, file, cb) => {
   ];
 
 
-  if (allowedTypes.includes(file.mimetype)) {
+  // Image types for publication cover
+  const allowedImageTypes = [
+    "image/jpeg",
 
-    cb(null, true);
+    "image/jpg",
 
-  } else {
+    "image/png",
 
-    cb(
+    "image/webp",
+  ];
+
+
+  // ============================================
+  // DOCUMENT
+  // ============================================
+
+  if (file.fieldname === "document") {
+
+    if (
+      allowedDocumentTypes.includes(
+        file.mimetype
+      )
+    ) {
+
+      return cb(null, true);
+
+    }
+
+    return cb(
       new Error(
         "Only PDF, Word, and Excel documents are allowed."
       ),
@@ -36,17 +65,63 @@ const fileFilter = (req, file, cb) => {
 
   }
 
+
+  // ============================================
+  // COVER IMAGE
+  // ============================================
+
+  if (file.fieldname === "coverImage") {
+
+    if (
+      allowedImageTypes.includes(
+        file.mimetype
+      )
+    ) {
+
+      return cb(null, true);
+
+    }
+
+    return cb(
+      new Error(
+        "Only JPG, PNG, and WEBP images are allowed for the cover."
+      ),
+      false
+    );
+
+  }
+
+
+  // ============================================
+  // INVALID FIELD
+  // ============================================
+
+  return cb(
+    new Error(
+      "Invalid upload field."
+    ),
+    false
+  );
+
 };
 
 
-// Maximum file size: 20MB
+// ============================================
+// MULTER CONFIGURATION
+// ============================================
+
 const upload = multer({
+
   storage,
+
   fileFilter,
 
   limits: {
+
     fileSize: 20 * 1024 * 1024,
+
   },
+
 });
 
 

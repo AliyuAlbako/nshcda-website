@@ -43,10 +43,18 @@ router.get(
 router.post(
   "/",
   protect,
-  upload.single("document"),
+  upload.fields([
+    {
+      name: "document",
+      maxCount: 1,
+    },
+    {
+      name: "coverImage",
+      maxCount: 1,
+    },
+  ]),
   createPublication
 );
-
 
 // Get single publication
 router.get(
@@ -60,10 +68,18 @@ router.get(
 router.put(
   "/:id",
   protect,
-  upload.single("document"),
+  upload.fields([
+    {
+      name: "document",
+      maxCount: 1,
+    },
+    {
+      name: "coverImage",
+      maxCount: 1,
+    },
+  ]),
   updatePublication
 );
-
 
 // Delete publication
 router.delete(

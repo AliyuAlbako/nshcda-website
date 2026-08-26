@@ -52,6 +52,32 @@ const publicationSchema = new mongoose.Schema(
       },
     },
 
+    // ================= COVER IMAGE =================
+
+    coverImage: {
+      url: {
+        type: String,
+        default: "",
+      },
+
+      publicId: {
+        type: String,
+        default: "",
+      },
+
+      originalName: {
+        type: String,
+      },
+
+      fileSize: {
+        type: Number,
+      },
+
+      fileType: {
+        type: String,
+      },
+    },
+
     // ================= PUBLICATION STATUS =================
 
     status: {

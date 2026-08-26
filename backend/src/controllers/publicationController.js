@@ -3,6 +3,8 @@ const Publication = require("../models/Publication");
 const {
   uploadPublicationDocument,
   deletePublicationDocument,
+  uploadPublicationCoverImage,
+  deletePublicationCoverImage,
 } = require("../services/cloudinaryService");
 
 
@@ -13,6 +15,7 @@ const {
 
 const createPublication = async (req, res) => {
   try {
+
     const {
       title,
       description,
@@ -22,26 +25,63 @@ const createPublication = async (req, res) => {
     } = req.body;
 
 
-    // ================= VALIDATE FILE =================
+    // =================================================
+    // GET UPLOADED FILES
+    // =================================================
 
-    if (!req.file) {
+    const documentFile =
+      req.files?.document?.[0];
+
+    const coverImageFile =
+      req.files?.coverImage?.[0];
+
+
+    // =================================================
+    // VALIDATE DOCUMENT
+    // =================================================
+
+    if (!documentFile) {
+
       return res.status(400).json({
         success: false,
         message: "Please upload a document.",
       });
+
     }
 
 
-    // ================= UPLOAD DOCUMENT =================
+    // =================================================
+    // UPLOAD DOCUMENT
+    // =================================================
 
     const uploadedDocument =
       await uploadPublicationDocument(
-        req.file,
+        documentFile,
         title
       );
 
 
-    // ================= CREATE PUBLICATION =================
+    // =================================================
+    // UPLOAD COVER IMAGE
+    // Optional
+    // =================================================
+
+    let uploadedCoverImage = null;
+
+    if (coverImageFile) {
+
+      uploadedCoverImage =
+        await uploadPublicationCoverImage(
+          coverImageFile,
+          title
+        );
+
+    }
+
+
+    // =================================================
+    // CREATE PUBLICATION
+    // =================================================
 
     const publication =
       await Publication.create({
@@ -52,6 +92,8 @@ const createPublication = async (req, res) => {
         status: status || "Published",
 
         document: uploadedDocument,
+
+        coverImage: uploadedCoverImage,
       });
 
 
@@ -73,6 +115,7 @@ const createPublication = async (req, res) => {
       success: false,
       message: error.message,
     });
+
   }
 };
 
@@ -108,6 +151,7 @@ const getPublications = async (req, res) => {
       success: false,
       message: error.message,
     });
+
   }
 };
 
@@ -144,6 +188,7 @@ const getAdminPublications = async (
       success: false,
       message: error.message,
     });
+
   }
 };
 
@@ -163,11 +208,13 @@ const getPublication = async (req, res) => {
 
 
     if (!publication) {
+
       return res.status(404).json({
         success: false,
         message:
           "Publication not found.",
       });
+
     }
 
 
@@ -182,6 +229,7 @@ const getPublication = async (req, res) => {
       success: false,
       message: error.message,
     });
+
   }
 };
 
@@ -210,15 +258,19 @@ const updatePublication = async (req, res) => {
 
 
     if (!publication) {
+
       return res.status(404).json({
         success: false,
         message:
           "Publication not found.",
       });
+
     }
 
 
-    // Update basic information
+    // =================================================
+    // UPDATE BASIC INFORMATION
+    // =================================================
 
     if (title !== undefined) {
       publication.title = title;
@@ -241,16 +293,31 @@ const updatePublication = async (req, res) => {
     }
 
 
-    // ================= REPLACE DOCUMENT =================
+    // =================================================
+    // GET UPLOADED FILES
+    // =================================================
 
-    if (req.file) {
+    const documentFile =
+      req.files?.document?.[0];
 
-      // Delete old document first
+    const coverImageFile =
+      req.files?.coverImage?.[0];
+
+
+    // =================================================
+    // REPLACE DOCUMENT
+    // =================================================
+
+    if (documentFile) {
+
+      // Delete old document
 
       if (publication.document?.publicId) {
+
         await deletePublicationDocument(
           publication.document.publicId
         );
+
       }
 
 
@@ -258,13 +325,46 @@ const updatePublication = async (req, res) => {
 
       const uploadedDocument =
         await uploadPublicationDocument(
-          req.file,
+          documentFile,
           title || publication.title
         );
 
 
       publication.document =
         uploadedDocument;
+
+    }
+
+
+    // =================================================
+    // REPLACE COVER IMAGE
+    // =================================================
+
+    if (coverImageFile) {
+
+      // Delete old cover image
+
+      if (publication.coverImage?.publicId) {
+
+        await deletePublicationCoverImage(
+          publication.coverImage.publicId
+        );
+
+      }
+
+
+      // Upload new cover image
+
+      const uploadedCoverImage =
+        await uploadPublicationCoverImage(
+          coverImageFile,
+          title || publication.title
+        );
+
+
+      publication.coverImage =
+        uploadedCoverImage;
+
     }
 
 
@@ -289,6 +389,7 @@ const updatePublication = async (req, res) => {
       success: false,
       message: error.message,
     });
+
   }
 };
 
@@ -308,15 +409,19 @@ const deletePublication = async (req, res) => {
 
 
     if (!publication) {
+
       return res.status(404).json({
         success: false,
         message:
           "Publication not found.",
       });
+
     }
 
 
-    // ================= DELETE FROM CLOUDINARY =================
+    // =================================================
+    // DELETE DOCUMENT FROM CLOUDINARY
+    // =================================================
 
     if (publication.document?.publicId) {
 
@@ -327,7 +432,22 @@ const deletePublication = async (req, res) => {
     }
 
 
-    // ================= DELETE FROM DATABASE =================
+    // =================================================
+    // DELETE COVER IMAGE FROM CLOUDINARY
+    // =================================================
+
+    if (publication.coverImage?.publicId) {
+
+      await deletePublicationCoverImage(
+        publication.coverImage.publicId
+      );
+
+    }
+
+
+    // =================================================
+    // DELETE FROM DATABASE
+    // =================================================
 
     await publication.deleteOne();
 
@@ -349,6 +469,7 @@ const deletePublication = async (req, res) => {
       success: false,
       message: error.message,
     });
+
   }
 };
 

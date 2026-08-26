@@ -287,12 +287,28 @@ function Publications() {
 
 
                       {/* Icon */}
+{/* Cover Image or Default Icon */}
 
-                      <div className="publication-icon">
+        {publication.coverImage?.url ? (
 
-                        <FaFileAlt />
+          <div className="publication-cover">
 
-                      </div>
+            <img
+              src={publication.coverImage.url}
+              alt={`${publication.title} cover`}
+            />
+
+          </div>
+
+        ) : (
+
+          <div className="publication-icon">
+
+            <FaFileAlt />
+
+          </div>
+
+        )}
 
 
                       {/* Category */}

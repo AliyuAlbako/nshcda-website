@@ -8,6 +8,7 @@ import {
   FaCog,
   FaSignOutAlt,
   FaBookOpen,
+  FaNewspaper,
 } from "react-icons/fa";
 
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -42,6 +43,12 @@ function AdminSidebar({ sidebarOpen }) {
       label: "Opportunities",
       path: "/admin/opportunities",
       icon: <FaBriefcase />,
+    },
+
+    {
+  label: "News & Highlights",
+  path: "/admin/news-highlights",
+  icon: <FaNewspaper />,
     },
     {
   label: "Publications & Documents",

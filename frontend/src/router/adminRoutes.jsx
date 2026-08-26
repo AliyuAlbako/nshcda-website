@@ -13,6 +13,7 @@ import AdminMedia from "../pages/admin/AdminMedia";
 import AdminEmploymentProfiles from "../pages/admin/AdminEmploymentProfiles";
 import AdminCVRequests from "../pages/admin/AdminCVRequests";
 import AdminPublications from "../pages/admin/AdminPublications";
+import AdminNewsHighlights from "../pages/admin/AdminNewsHighlights";
 import NotFound from "../pages/NotFound";
 
 function AdminRoutes() {
@@ -60,6 +61,8 @@ function AdminRoutes() {
             path="opportunities"
             element={<AdminOpportunities />}
           />
+
+          <Route path="news-highlights" element={<AdminNewsHighlights />}/>
           <Route
            path="opportunities/new"
            element={<AdminOpportunityForm />}
